@@ -1,0 +1,477 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+	<!-- meta data -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--font-family-->
+	<link
+		href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext"
+		rel="stylesheet">
+
+	<!-- title of site -->
+	<title>Projects - Christian's Portfolio</title>
+
+	<!-- For favicon png -->
+	<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png" />
+
+	<!--font-awesome.min.css-->
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<!--bootstrap.min.css-->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<!-- bootsnav -->
+	<link rel="stylesheet" href="assets/css/bootsnav.css">
+
+	<!--style.css-->
+	<link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- modern-style.css -->
+    <link rel="stylesheet" href="assets/css/modern-style.css">
+
+	<!--responsive.css-->
+	<link rel="stylesheet" href="assets/css/responsive.css">
+
+	<style>
+		.project-image-container {
+			width: 100%;
+			aspect-ratio: 3 / 4; /* Changed to portrait */
+			overflow: hidden;
+			border-radius: 15px; /* Slightly more rounded */
+			background-color: #2a2a2a;
+			margin-bottom: 20px;
+			padding: 1rem; /* Added padding */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@media (min-width: 992px) {
+			.project-image-container {
+				margin-bottom: 0;
+			}
+		}
+
+		.project-image-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain; /* Changed from cover to contain */
+			object-position: center;
+			border-radius: 5px; /* Inner image radius */
+		}
+	</style>
+</head>
+
+<body>
+	<!-- top-area Start -->
+	<header class="top-area">
+		<div class="header-area">
+			<!-- Start Navigation -->
+			<nav class="navbar navbar-default bootsnav navbar-fixed-top dark no-background">
+				<div class="container">
+					<!-- Start Header Navigation -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+							<i class="fa fa-bars"></i>
+						</button>
+						<a class="navbar-brand" href="index.html">Christian's Portfolio</a>
+					</div><!--/.navbar-header-->
+					<!-- End Header Navigation -->
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="projects.html">Projects</a></li>
+							<!-- <li><a href="achievements.html">Achievements</a></li> -->
+						</ul><!--/.nav -->
+					</div><!-- /.navbar-collapse -->
+				</div><!--/.container-->
+			</nav><!--/nav-->
+			<!-- End Navigation -->
+		</div><!--/.header-area-->
+		<div class="clearfix"></div>
+	</header><!-- /.top-area-->
+	<!-- top-area End -->
+
+	<!-- portfolio start -->
+	<section id="portfolio" class="portfolio" style="padding-top: 120px;">
+		<div class="portfolio-details">
+			<div class="section-heading text-center">
+				<h2>All Projects</h2>
+			</div>
+			<div class="container">
+				<div class="portfolio-content">
+
+					<!-- Project: Career Craft -->
+					<div id="project-career-craft" class="row align-items-center mb-5 portfolio-card">
+						<div class="col-md-5">
+							<div class="project-image-container">
+								<img src="assets/images/portfolio/p4.png" alt="Career Craft" class="img-fluid">
+							</div>
+						</div>
+						<div class="col-md-7 mt-4 mt-md-0">
+							<h3>Career Craft</h3>
+							Career Craft is an AI-powered career guidance website designed to help users find the
+							perfect job and build a personalized learning path. By integrating advanced AI models,
+							Career Craft offers job recommendations tailored to your skills and interests, provides
+							step-by-step roadmaps for career growth, and features a 24/7 AI chatbot to answer all your
+							career-related questions. Built with Laravel and powered by Llama through Replicate, Career
+							Craft delivers seamless, real-time support for your career journey.
+							<br></br>
+							<h5>App Features:</h5>
+							<ul>
+								<li>- Personalized job recommendations based on your profile and preferences.</li>
+								<li>- Dynamic career roadmaps to guide your learning and skill development.</li>
+								<li>- 24/7 AI chatbot support to answer career-related questions anytime.</li>
+								<li>- User-friendly dashboard to manage your goals and track progress.</li>
+							</ul>
+							<br></br>
+							<h5>Tech Stack:</h5>
+							<ul>
+								<li>Laravel (for backend development)</li>
+								<li>Llama (via Replicate for AI chatbot)</li>
+								<li>HTML, CSS, JavaScript (for frontend)</li>
+								<li>MySQL (for database management)</li>
+							</ul>
+							<br></br>
+							<h5>Special Thanks to My Team</h5>
+							<ul class="team-members">
+								<li><a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>, <a
+										href="https://github.com/AkuSiapaHayO" target="_blank">Louis Mario</a>, <a
+										href="https://github.com/jasonmiracleg" target="_blank">Jason Miracle</a></li>,
+								and <a href="#" target="_blank">Filbert Patricio</a></li>
+							</ul>
+							<br></br>
+							<ul class="team-members">
+								<li>Check out the full code on GitHub: <a
+										href="https://github.com/jennimi/CareerCraft">https://github.com/jennimi/CareerCraft</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Project: Cyberbullying Detector -->
+					<div id="project-cyberbullying" class="row align-items-center mb-5 portfolio-card">
+						<div class="col-md-5">
+							<div class="project-image-container">
+								<img src="assets/images/portfolio/p7.png" alt="UI/UX Design" class="img-fluid">
+							</div>
+						</div>
+						<div class="col-md-7 mt-4 mt-md-0">
+							<h3>Cyberbullying Detector</h3>
+							In this project, I used Machine Learning to detect cyberbullying on social media. Together
+							with my team, we developed a model that can identify cyberbullying using a dataset of
+							approximately 50k tweets and implement it into a website to predict a single sentence.
+							<br></br>
+							<h5>App Features:</h5>
+							<ul>
+								<li>- Real-time cyberbullying detection on social media text.</li>
+								<li>- Classification of different types of cyberbullying (e.g., gender, religion,
+									ethnicity, etc.).</li>
+								<li>- User-friendly interface for text input and detection results.</li>
+							</ul>
+							<br></br>
+							<h5>Tech Stack:</h5>
+							<ul>
+								<li>Python (Scikit-learn, Pandas, NLTK)</li>
+								<li>Flask (for backend API)</li>
+								<li>HTML, CSS, JavaScript (for frontend)</li>
+							</ul>
+							<br></br>
+							<h5>Special Thanks to My Team</h5>
+							<ul class="team-members">
+								<li><a href="https://github.com/bryansamuelian" target="_blank">Bryan Samuel</a> and <a
+										href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a></li>
+								<br></br>
+								<ul class="team-members">
+									<li>Check out the full code on GitHub: <a
+											href="https://github.com/AsukaaNao/Cyberbullying_Detection">https://github.com/AsukaaNao/Cyberbullying_Detection</a>
+									</li>
+								</ul>
+						</div>
+					</div>
+
+					<!-- Project: Yucca AI -->
+					<div id="project-yucca-ai" class="row align-items-center mb-5 portfolio-card">
+						<div class="col-md-5">
+							<div class="project-image-container">
+								<img src="assets/images/portfolio/p2.jpeg" alt="Web Design" class="img-fluid">
+							</div>
+						</div>
+						<div class="col-md-7 mt-4 mt-md-0">
+							<h3>Yucca AI</h3>
+							In this project, we developed an interactive chatbot that can answer various questions about
+							Yucca, the mascot of Universitas Ciputra Surabaya. This chatbot integrates OpenAI's language
+							model with a Unity-based 3D environment, allowing users to engage in real-time conversations
+							with Yucca inside an immersive application.
+							<br></br>
+							<h5>App Features:</h5>
+							<ul>
+								<li>- Real-time Q&A chatbot using voice recognition about Universitas Ciputra's mascot,
+									Yucca.</li>
+								<li>- 3D interactive environment built with Unity for an engaging user experience.</li>
+								<li>- Natural language understanding powered by OpenAI Langchain's language model.</li>
+							</ul>
+							<br></br>
+							<h5>Tech Stack:</h5>
+							<ul>
+								<li>Unity and C# (for 3D application and UI)</li>
+								<li>Langchain (for natural language processing)</li>
+								<li>Whisper (for speech recognition)</li>
+								<li>Fastnet API</li>
+								<li>ElevenLabs for voice synthesis</li>
+							</ul>
+							<br></br>
+							<h5>Special Thanks to My Team</h5>
+							<ul class="team-members">
+								<li><a href="https://github.com/bryansamuelian" target="_blank">Bryan Samuel</a>, <a
+										href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a>
+									, <a href="https://github.com/oxqlion" target="_blank">Rafi Abhista</a>, and <a
+										href="https://github.com/derendmarvel" target="_blank">Derend Marvel</a></li>
+							</ul>
+							<br></br>
+							<ul class="team-members">
+								<li>Check out the full code on GitHub: <a
+										href="https://github.com/HDWKG/Yuuka3">https://github.com/HDWKG/Yuuka3</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Project: Presentea -->
+					<div id="project-presentea" class="row align-items-center mb-5 portfolio-card">
+						<div class="col-md-5">
+							<div class="project-image-container">
+								<img src="assets/images/portfolio/p6.jpg" alt="Presentea - AI Presentation Scoring"
+									class="img-fluid">
+							</div>
+						</div>
+						<div class="col-md-7 mt-4 mt-md-0">
+							<h3>Presentea</h3>
+							Presentea is an innovative web-based AI system designed to evaluate and score a person's
+							presentation skills
+							based on voice and body language. By leveraging machine learning and advanced web
+							technologies, Presentea provides
+							real-time feedback to help users enhance their public speaking abilities.
+							<br></br>
+							<h5>App Features:</h5>
+							<ul>
+								<li>- AI-powered analysis of voice and body language for real-time presentation scoring.
+								</li>
+								<li>- Voice & Speech Analysis: Evaluates tone, clarity, pace, and confidence.</li>
+								<li>- Body Language Evaluation: Uses Teachable Machine to assess posture, gestures, and
+									facial expressions.</li>
+								<li>- Real-time scoring</li>
+								<li>- User-friendly web interface for seamless experience.</li>
+							</ul>
+							<br></br>
+							<h5>Tech Stack:</h5>
+							<ul>
+								<li>HTML, CSS, JavaScript (for web development)</li>
+								<li>Teachable Machine (for machine learning-based body language analysis)</li>
+							</ul>
+							<br></br>
+							<h5>Special Thanks to My Team</h5>
+							<ul class="team-members">
+								<li>
+									<a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>,
+									<a href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a>,
+									<a href="https://github.com/DaC00KIE" target="_blank">Gavin Lienardi</a>,
+									<a href="https://github.com/jasonmiracleg" target="_blank">Jason Miracle</a>, and
+									<a href="#" target="_blank">Gabriela Putri</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Project: Nusantara Kafe -->
+					<div id="project-nusantara-kafe" class="row align-items-center mb-5 portfolio-card">
+						<div class="col-md-5">
+							<div class="project-image-container">
+								<img src="assets/images/portfolio/p6.png" alt="Nusantara Kafe Game"
+									class="img-fluid">
+							</div>
+						</div>
+						<div class="col-md-7 mt-4 mt-md-0">
+							<h3>Nusantara Kafe</h3>
+								Nusantara Kafe is a cafe tycoon simulation game developed in Unity, where players build
+								and manage
+								their own traditional Indonesian cafe. Set in a vibrant, culturally rich environment,
+								the game challenges
+								players to serve local delicacies, expand their business, and keep customers happy
+								through smart strategy
+								and creative customization.
+							<br><br>
+							<h5>Game Features:</h5>
+							<ul>
+								<li>- Cafe Customization: Design and upgrade your cafe with traditional Indonesian decor
+									and furniture.</li>
+								<li>- Local Dishes: Serve iconic foods like nasi goreng, sate, and es cendol to attract
+									customers.</li>
+								<li>- Business Strategy: Manage ingredients, pricing, and customer satisfaction to
+									maximize profits.</li>
+								<li>- Staff Management: Hire and train employees to improve service and efficiency.</li>
+								<li>- Progressive Gameplay: Unlock new recipes, decorations, and cafe branches as you
+									grow.</li>
+							</ul>
+							<br>
+							<h5>Tech Stack:</h5>
+							<ul>
+								<li>Unity (Game Engine)</li>
+								<li>C# (Game Logic)</li>
+							</ul>
+							<br>
+							<h5>Special Thanks to My Team</h5>
+							<ul class="team-members">
+								<li>
+									<a href="https://github.com/bryansamuelian" target="_blank">Bryan Samuel</a>, 
+									<a href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a>
+									, <a href="https://github.com/oxqlion" target="_blank">Rafi Abhista</a>, and 
+									<a href="https://github.com/derendmarvel" target="_blank">Derend Marvel</a>
+								</li>
+							</ul>
+							<br></br>
+							<ul class="team-members">
+								<li>Check out the game at itch.io: <a
+									href="https://hdwk.itch.io/nusantara-kafe">https://hdwk.itch.io/nusantara-kafe</a></li>
+								<li>Check out the full code on GitHub: <a
+										href="https://github.com/HDWKG/TSA-GameFest">https://github.com/HDWKG/TSA-GameFest</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Project: Heartlink -->
+					<div id="project-heartlink" class="row align-items-center mb-5 portfolio-card">
+						<div class="col-md-5">
+							<div class="project-image-container">
+								<img src="assets/images/portfolio/p3.png" alt="Heartlink App" class="img-fluid">
+							</div>
+						</div>
+						<div class="col-md-7 mt-4 mt-md-0">
+							<h3>Heartlink</h3>
+							Heartlink is a couple-focused mobile application designed to keep soulmates connected
+							anytime and anywhere. With real-time location tracking, instant notifications, and seamless
+							media sharing, couples can stay close, share moments, and ensure each other's safety. Built
+							with Swift and powered by Firebase, Heartlink delivers a smooth and reliable experience for
+							modern relationships.
+							<br></br>
+							<h5>App Features:</h5>
+							<ul>
+								<li>- Real-time location tracking between connected partners.</li>
+								<li>- Instant notifications for check-ins, arrivals, or custom events.</li>
+								<li>- Chat system with support for photos, videos, and text messages.</li>
+								<li>- Secure and private connection exclusively between paired users.</li>
+							</ul>
+							<br></br>
+							<h5>Tech Stack:</h5>
+							<ul>
+								<li>Swift (for iOS UI development)</li>
+								<li>Firebase (for real-time database, authentication, and cloud storage)</li>
+								<li>Cloud Firestore (for scalable NoSQL database)</li>
+								<li>Firebase Storage (for media uploads and management)</li>
+							</ul>
+							<br></br>
+							<h5>Special Thanks to My Team</h5>
+							<ul class="team-members">
+								<li><a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>, <a
+										href="https://github.com/HDWKG" target="_blank">Shelfinna</a>
+									, and <a href="" target="_blank">Filbert Patricio</a></li>
+							</ul>
+							<br></br>
+							<ul class="team-members">
+								<li>Check out the full code on GitHub: <a
+										href="https://github.com/AsukaaNao/Heartlink">https://github.com/AsukaaNao/Heartlink</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Project: Mochi Feel -->
+					<div id="project-mochi-feel" class="row align-items-center mb-5 portfolio-card">
+						<div class="col-md-5">
+							<div class="project-image-container">
+								<img src="assets/images/portfolio/p5.png" alt="Mochi Feel" class="img-fluid">
+							</div>
+						</div>
+						<div class="col-md-7 mt-4 mt-md-0">
+							<h3>Mochi Feel</h3>
+							Mochi Feel is a mental health journaling app designed to help users track their emotions,
+							reflect on their daily experiences, and promote self-awareness. With an intuitive interface
+							and calming design, Mochi Feel makes it easy to express your thoughts and monitor your
+							mental well-being over time. The app utilizes Firebase for secure data storage and Jetpack
+							Compose to deliver a smooth, modern Android experience.
+							<br></br>
+							<h5>App Features:</h5>
+							<ul>
+								<li>- Daily mood tracking with personalized emotion tags.</li>
+								<li>- Guided journaling prompts to encourage self-reflection.</li>
+								<li>- Calendar view to revisit past entries and mood trends.</li>
+								<li>- Secure and private data storage through Firebase.</li>
+								<li>- Minimalist and relaxing UI designed with Jetpack Compose.</li>
+							</ul>
+							<br></br>
+							<h5>Tech Stack:</h5>
+							<ul>
+								<li>Android Studio (for app development)</li>
+								<li>Jetpack Compose (for modern UI design)</li>
+								<li>Firebase (for authentication and real-time database)</li>
+								<li>Kotlin (as the primary programming language)</li>
+							</ul>
+							<br></br>
+							<h5>Special Thanks to My Team</h5>
+							<ul class="team-members">
+								<li><a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>, <a
+										href="https://github.com/DaC00KIE" target="_blank">Gavin Lienardi</a>, <a
+										href="https://github.com/jasonmiracleg" target="_blank">Jason Miracle</a></li>,
+								and <a href="https://github.com/AttraqtiA" target="_blank">Samuel Miracle</a></li>
+							</ul>
+							<br></br>
+							<ul class="team-members">
+								<li>Check out the full code on GitHub: <a
+										href="https://github.com/AttraqtiA/Mochi_Feel">https://github.com/AttraqtiA/Mochi_Feel</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div><!-- /.portfolio-content -->
+			</div><!-- /.container -->
+		</div><!-- /.portfolio-details -->
+	</section>
+	<!-- portfolio end -->
+
+	<!--footer-copyright start-->
+	<footer id="footer-copyright" class="footer-copyright">
+		<div class="container">
+			<div class="hm-footer-copyright text-center">
+				<p>
+					&copy; copyright Christian Tanjung. design and developed by <a
+						href="https://www.themesine.com/">themesine</a>
+				</p><!--/p-->
+			</div><!--/.text-center-->
+		</div><!--/.container-->
+
+		<div id="scroll-Top">
+			<div class="return-to-top">
+				<i class="fa fa-angle-up " id="scroll-top"></i>
+			</div>
+
+		</div><!--/.scroll-Top-->
+
+	</footer><!--/.footer-copyright-->
+	<!--footer-copyright end-->
+
+	<!-- Include all js compiled plugins (below), or include individual files as needed -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/bootsnav.js"></script>
+	<script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>
