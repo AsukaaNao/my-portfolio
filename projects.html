@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christian Tanjung | Projects</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -30,15 +32,16 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            pointer-events: none; /* Let clicks pass through to content */
+            pointer-events: none;
+            /* Let clicks pass through to content */
         }
-        
+
         /* Tooltip styles */
         .tech-icon-wrapper {
             position: relative;
             display: inline-block;
         }
-        
+
         .tech-icon-wrapper:hover::after {
             content: attr(data-title);
             position: absolute;
@@ -56,12 +59,16 @@
             opacity: 0;
             animation: fadeIn 0.2s forwards;
         }
-        
+
         @keyframes fadeIn {
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
         }
     </style>
 </head>
+
 <body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
     <!-- Interactive Canvas Background -->
@@ -71,14 +78,19 @@
     <nav class="fixed w-full z-50 bg-space-950/70 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
+                <a href="index.html"
+                    class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
                     Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
                 </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
-                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
-                    <a href="projects.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">Projects</a>
-                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
+                    <a href="index.html"
+                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html"
+                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="projects.html"
+                        class="text-sm font-medium text-white border-b-2 border-neon-primary">Projects</a>
+                    <a href="achievements.html"
+                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
                 </div>
             </div>
         </div>
@@ -87,7 +99,8 @@
     <!-- Header -->
     <section class="relative z-10 pt-32 pb-10 text-center px-4">
         <h1 class="text-5xl font-bold mb-6 text-white">Innovation <span class="text-neon-secondary">Lab</span></h1>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of AI models, games, and applications engineered to solve real-world problems.</p>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of AI models, games, and applications engineered
+            to solve real-world problems.</p>
     </section>
 
     <!-- Main Content Area -->
@@ -104,12 +117,18 @@
             </div>
 
             <!-- Project 1: Career Craft -->
-            <div id="project-career-craft" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
-                
+            <div id="project-career-craft"
+                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
+
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/p4.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Career+Craft'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/p4.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Career+Craft'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -118,33 +137,44 @@
                         <p class="text-neon-primary font-mono text-sm">AI-Powered Career Guidance</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        AI-powered career guidance website designed to help users find the perfect job and build a personalized learning path. Integrating advanced AI models (Llama via Replicate) to offer tailored recommendations and a 24/7 AI chatbot.
+                        AI-powered career guidance website designed to help users find the perfect job and build a
+                        personalized learning path. Integrating advanced AI models (Llama via Replicate) to offer
+                        tailored recommendations and a 24/7 AI chatbot.
                     </p>
-                    
+
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Laravel -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Laravel">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Laravel">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- MySQL -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="MySQL">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="MySQL">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Meta/Llama (Using Meta Logo) -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Llama AI (Meta)">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Llama AI (Meta)">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
-                             <!-- JS -->
-                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <!-- JS -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                         </div>
                     </div>
 
                     <div class="pt-2">
-                        <a href="https://github.com/jennimi/CareerCraft" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://github.com/jennimi/CareerCraft" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="github" class="w-4 h-4"></i> View Code
                         </a>
                     </div>
@@ -152,11 +182,17 @@
             </div>
 
             <!-- Project 2: Cyberbullying Detector -->
-            <div id="project-cyberbullying" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-cyberbullying"
+                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/p7.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Cyberbullying'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/p7.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Cyberbullying'"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -165,31 +201,42 @@
                         <p class="text-neon-secondary font-mono text-sm">NLP Classification Model</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        Machine Learning project using Scikit-learn and NLTK to detect cyberbullying in tweets. Trained on a 50k dataset, it classifies different types of toxicity (gender, religion, ethnicity) and is deployed via Flask.
+                        Machine Learning project using Scikit-learn and NLTK to detect cyberbullying in tweets. Trained
+                        on a 50k dataset, it classifies different types of toxicity (gender, religion, ethnicity) and is
+                        deployed via Flask.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Python -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Python">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Flask -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Flask">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Flask">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                             <!-- Scikit-learn -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Scikit-learn">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Scikit-learn">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Pandas -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Pandas">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Pandas">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="https://github.com/AsukaaNao/Cyberbullying_Detection" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://github.com/AsukaaNao/Cyberbullying_Detection" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="github" class="w-4 h-4"></i> View Code
                         </a>
                     </div>
@@ -197,11 +244,17 @@
             </div>
 
             <!-- Project 3: Presentea -->
-            <div id="project-presentea" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-presentea"
+                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/p6.jpg" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Presentea'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/p6.jpg"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Presentea'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -210,27 +263,36 @@
                         <p class="text-neon-primary font-mono text-sm">AI Presentation Scoring</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        An innovative web-based AI system designed to evaluate and score a person's presentation skills based on voice tone, clarity, and body language. Uses Teachable Machine for gesture analysis and provides real-time feedback.
+                        An innovative web-based AI system designed to evaluate and score a person's presentation skills
+                        based on voice tone, clarity, and body language. Uses Teachable Machine for gesture analysis and
+                        provides real-time feedback.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- HTML -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="HTML5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- JS -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Teachable Machine -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Teachable Machine">
-                                <img src="https://cdn-1.webcatalog.io/catalog/teachable-machine/teachable-machine-icon-filled-256.webp?v=1719392793780" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Teachable Machine">
+                                <img src="https://cdn-1.webcatalog.io/catalog/teachable-machine/teachable-machine-icon-filled-256.webp?v=1719392793780"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
+                        <span
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
                             <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
                         </span>
                     </div>
@@ -238,11 +300,17 @@
             </div>
 
             <!-- New Project 4: Chatwoot + Ollama -->
-            <div id="project-chatwoot" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-chatwoot"
+                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/chatwoot_ollama.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Chatwoot+%2B+Ollama'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/chatwoot_ollama.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Chatwoot+%2B+Ollama'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -251,27 +319,39 @@
                         <p class="text-neon-secondary font-mono text-sm">Automated Customer Engagement</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A multi-channel CRM automation system integrating Chatwoot with local LLMs via Ollama. It centralizes and automates customer interactions from WhatsApp, Gmail, and Messenger using a Dockerized architecture for privacy and control.
+                        A multi-channel CRM automation system integrating Chatwoot with local LLMs via Ollama. It
+                        centralizes and automates customer interactions from WhatsApp, Gmail, and Messenger using a
+                        Dockerized architecture for privacy and control.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Docker -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Docker">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
+                                data-title="Chatwoot">
+                                <img src="https://products.containerize.com/id/live-chat/chatwoot/menu_image.png" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Docker">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Python -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Python">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
+                            <!-- <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
+                            </div> -->
                             <!-- Ollama (using terminal icon as placeholder if needed, or specific if available) -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white" data-title="Ollama">
-                                <i data-lucide="bot" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
+                                data-title="Ollama">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/ollama.png" class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
+                        <span
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
                             <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
                         </span>
                     </div>
@@ -279,40 +359,54 @@
             </div>
 
             <!-- New Project 5: Leads RiceAI -->
-            <div id="project-leads-riceai" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-leads-riceai"
+                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/leads_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Leads+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/leads_riceai.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Leads+RiceAI'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
                     <div>
                         <h2 class="text-3xl font-bold text-white mb-2">Leads RiceAI</h2>
-                        <p class="text-neon-primary font-mono text-sm">Lead Management System</p>
+                        <p class="text-neon-primary font-mono text-sm">Lead Generator</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A specialized lead generation and management platform for AI consultancy services. Designed to streamline client intake and project matching.
+                        A dedicated lead generation platform for AI consultancy services, built to attract, capture, and
+                        qualify potential clients through streamlined intake forms and automated filtering..
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                             <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="https://leads.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://leads.riceai.net/" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
                         </a>
                     </div>
@@ -320,11 +414,17 @@
             </div>
 
             <!-- New Project 6: Content RiceAI -->
-            <div id="project-content-riceai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-content-riceai"
+                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/content_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Content+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/content_riceai.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Content+RiceAI'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -333,27 +433,35 @@
                         <p class="text-neon-secondary font-mono text-sm">AI Content Generation</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        An AI-driven content platform aimed at automating and enhancing digital marketing materials and copy.
+                        An AI-driven content platform aimed at automating and enhancing digital marketing materials and
+                        copy.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                             <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="https://content.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://content.riceai.net/" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
                         </a>
                     </div>
@@ -361,11 +469,17 @@
             </div>
 
             <!-- New Project 7: Visual RiceAI -->
-            <div id="project-visual-riceai" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-visual-riceai"
+                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/visual_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Visual+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/visual.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Visual+RiceAI'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -374,27 +488,35 @@
                         <p class="text-neon-primary font-mono text-sm">AI Image Processing</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A visual AI tool leveraging generative models for image creation and enhancement for business applications.
+                        A visual AI tool leveraging generative models for image creation and enhancement for business
+                        applications.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                             <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="https://visual.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://visual.riceai.net/" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
                         </a>
                     </div>
@@ -402,11 +524,17 @@
             </div>
 
             <!-- New Project 8: Link RiceAI -->
-            <div id="project-link-riceai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-link-riceai"
+                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/link_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Link+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/link_rice.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Link+RiceAI'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -415,27 +543,35 @@
                         <p class="text-neon-secondary font-mono text-sm">Smart Link Management</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A centralized link management and bio-link solution for professional branding and portfolio sharing.
+                        A centralized link management and bio-link solution for professional branding and portfolio
+                        sharing.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                             <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="https://link.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://link.riceai.net/" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
                         </a>
                     </div>
@@ -443,11 +579,17 @@
             </div>
 
             <!-- New Project 9: Defect Detection -->
-            <div id="project-defect-detection" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-defect-detection"
+                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/defect_detection.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Defect+Detection'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/defect_detection.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Defect+Detection'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -456,26 +598,41 @@
                         <p class="text-neon-primary font-mono text-sm">Industrial Computer Vision</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        An AI training and prediction system designed to identify defects in manufacturing. Allows for training on custom datasets and swapping models to adapt to different visual inspection tasks.
+                        An AI training and prediction system designed to identify defects in manufacturing. Allows for
+                        training on custom datasets and swapping models to adapt to different visual inspection tasks.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Docker -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Docker">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
                             <!-- Python -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Python">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- TensorFlow/PyTorch (Placeholder AI) -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white" data-title="TensorFlow / PyTorch">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
+                                data-title="TensorFlow / PyTorch">
                                 <i data-lucide="cpu" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
+                        <span
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
                             <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
                         </span>
                     </div>
+                    <!-- <a href="https://github.com/HDWKG/TSA-GameFest" target="_blank"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                        <i data-lucide="github" class="w-4 h-4"></i> View Code
+                    </a> -->
                 </div>
             </div>
 
@@ -492,11 +649,17 @@
             </div>
 
             <!-- Project 4: Nusantara Kafe -->
-            <div id="project-nusantara-kafe" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-r from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-nusantara-kafe"
+                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/p6.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Nusantara+Kafe'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/p6.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Nusantara+Kafe'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -505,30 +668,39 @@
                         <p class="text-neon-secondary font-mono text-sm">TSA GameFest 2024 Winner</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A cafe tycoon simulation game where players manage a traditional Indonesian cafe. Serve local delicacies like satay and es cendol, manage staff, and upgrade your shop. Won 1st place for cultural representation and gameplay.
+                        A cafe tycoon simulation game where players manage a traditional Indonesian cafe. Serve local
+                        delicacies like satay and es cendol, manage staff, and upgrade your shop. Won 1st place for
+                        cultural representation and gameplay.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Unity -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Unity">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Unity">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- C# -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="C#">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="C#">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
-                             <!-- Gamepad Icon for Game Design -->
-                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white" data-title="Game Design">
+                            <!-- Gamepad Icon for Game Design -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
+                                data-title="Game Design">
                                 <i data-lucide="gamepad" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
                             </div>
                         </div>
                     </div>
                     <div class="pt-2 flex flex-wrap gap-4">
-                        <a href="https://hdwk.itch.io/nusantara-kafe" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://hdwk.itch.io/nusantara-kafe" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="gamepad-2" class="w-4 h-4"></i> Play Game
                         </a>
-                        <a href="https://github.com/HDWKG/TSA-GameFest" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://github.com/HDWKG/TSA-GameFest" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="github" class="w-4 h-4"></i> View Code
                         </a>
                     </div>
@@ -536,11 +708,17 @@
             </div>
 
             <!-- Project 5: Yucca AI -->
-            <div id="project-yucca-ai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-yucca-ai"
+                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/p2.jpeg" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Yucca+AI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/p2.jpeg"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Yucca+AI'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -549,27 +727,36 @@
                         <p class="text-neon-secondary font-mono text-sm">Interactive 3D Chatbot</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        Interactive chatbot answering questions about Yucca, the university mascot. Integrates OpenAI's Langchain with a Unity-based 3D environment for real-time voice conversations using Whisper and ElevenLabs.
+                        Interactive chatbot answering questions about Yucca, the university mascot. Integrates OpenAI's
+                        Langchain with a Unity-based 3D environment for real-time voice conversations using Whisper and
+                        ElevenLabs.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Unity -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Unity">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Unity">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
-                             <!-- LangChain -->
-                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="LangChain">
-                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain.png" class="w-8 h-8 md:w-10 md:h-10 object-contain">
+                            <!-- LangChain -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="LangChain">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain.png"
+                                    class="w-8 h-8 md:w-10 md:h-10 object-contain">
                             </div>
                             <!-- OpenAI -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="OpenAI / Whisper">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="OpenAI / Whisper">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="https://github.com/HDWKG/Yuuka3" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://github.com/HDWKG/Yuuka3" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="github" class="w-4 h-4"></i> View Code
                         </a>
                     </div>
@@ -588,48 +775,67 @@
             </div>
 
             <!-- Project 6: Heartlink -->
-            <div id="project-heartlink" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div class="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <div id="project-heartlink"
+                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
-                    <img src="assets/images/portfolio/p3.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Heartlink'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                </div>
-            </div>
-            <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2">Heartlink</h2>
-                    <p class="text-pink-500 font-mono text-sm">Couple-Focused iOS App</p>
-                </div>
-                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                    A couple-focused iOS mobile application for real-time location tracking, chat, and media sharing. It keeps soulmates connected using Firebase for backend services and Swift for the native UI. Top 5 Finalist at Mobile App Challenge.
-                </p>
-                <div class="space-y-3">
-                    <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <!-- Swift -->
-                        <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Swift">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" class="w-8 h-8 md:w-10 md:h-10">
-                        </div>
-                        <!-- Firebase -->
-                        <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Firebase">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8 md:w-10 md:h-10">
-                        </div>
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
+                        <img src="assets/images/portfolio/p3.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Heartlink'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Heartlink</h2>
+                        <p class="text-pink-500 font-mono text-sm">Couple-Focused iOS App</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        A couple-focused iOS mobile application for real-time location tracking, chat, and media
+                        sharing. It keeps soulmates connected using Firebase for backend services and Swift for the
+                        native UI. Top 5 Finalist at Mobile App Challenge.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Swift -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Swift">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Firebase -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Firebase">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                        </div>
+                    </div>
                     <div class="pt-2">
-                    <a href="https://github.com/AsukaaNao/Heartlink" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
-                        <i data-lucide="github" class="w-4 h-4"></i> View Code
-                    </a>
+                        <a href="https://github.com/AsukaaNao/Heartlink" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i> View Code
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Project 7: Mochi Feel -->
-        <div id="project-mochi-feel" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-            <div class="absolute inset-0 bg-gradient-to-l from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+            <!-- Project 7: Mochi Feel -->
+            <div id="project-mochi-feel"
+                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div
+                    class="absolute inset-0 bg-gradient-to-l from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+                </div>
                 <div class="w-full md:w-5/12 relative z-10">
-                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
-                        <img src="assets/images/portfolio/p5.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Mochi+Feel'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
+                        <img src="assets/images/portfolio/p5.png"
+                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Mochi+Feel'"
+                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
@@ -638,27 +844,36 @@
                         <p class="text-pink-500 font-mono text-sm">Mental Health Journaling</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A mental health journaling app tracking emotions and promoting self-awareness. Features daily mood tracking, calendar views, and secure Firebase storage, wrapped in a calming UI built with Jetpack Compose.
+                        A mental health journaling app tracking emotions and promoting self-awareness. Features daily
+                        mood tracking, calendar views, and secure Firebase storage, wrapped in a calming UI built with
+                        Jetpack Compose.
                     </p>
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
                         <div class="flex flex-wrap gap-4 items-center">
                             <!-- Kotlin -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Kotlin">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Kotlin">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
-                             <!-- Jetpack Compose -->
-                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Jetpack Compose">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <!-- Jetpack Compose -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Jetpack Compose">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <!-- Firebase -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Firebase">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                                data-title="Firebase">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="https://github.com/AttraqtiA/Mochi_Feel" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
+                        <a href="https://github.com/AttraqtiA/Mochi_Feel" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
                             <i data-lucide="github" class="w-4 h-4"></i> View Code
                         </a>
                     </div>
@@ -678,7 +893,7 @@
         // Canvas Animation Script
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
-        
+
         let width, height;
         let particles = [];
         const particleCount = 60; // Number of dots
@@ -757,7 +972,7 @@
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            
+
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
@@ -788,4 +1003,5 @@
 
     </script>
 </body>
+
 </html>
