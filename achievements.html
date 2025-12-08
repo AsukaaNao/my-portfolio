@@ -1,58 +1,128 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <!-- ... (Copy the entire <head> section from index.html here) ... -->
-	<title>Achievements - Christian's Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Tanjung | Achievements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        space: { 950: '#050505', 900: '#0a0a0a', 800: '#121212' },
+                        neon: { primary: '#8b5cf6', secondary: '#06b6d4', glow: 'rgba(139, 92, 246, 0.5)' }
+                    },
+                    animation: { 'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
+                }
+            }
+        }
+    </script>
 </head>
+<body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
-<body>
-	<header class="top-area">
-		<div class="header-area">
-			<!-- (Paste the new <nav> section here) -->
-		</div>
-		<div class="clearfix"></div>
-	</header>
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse-slow"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neon-secondary/10 rounded-full blur-[120px] opacity-20"></div>
+    </div>
 
-	<!-- achievements page start -->
-	<section id="achievements-page" class="achievements-section" style="padding-top: 120px;">
-		<div class="container">
-			<div class="section-heading text-center">
-				<h2>My Achievements</h2>
-			</div>
-			<div class="achievement-entry">
-				<h3>🏆 1st Place Winner - TSA GameFest 2024</h3>
-				<p class="achievement-meta"><strong>Project:</strong> Nusantara Kafe | <strong>Date:</strong> May 2024</p>
-				<p>Led a team to develop 'Nusantara Kafe,' a cafe tycoon simulation game, which won first place for its innovative gameplay, cultural representation, and technical execution in Unity. Responsible for core game logic and UI implementation.</p>
-			</div>
-			<hr class="achievement-divider">
-			<div class="achievement-entry">
-				<h3>💡 AI Innovation Grant Recipient</h3>
-				<p class="achievement-meta"><strong>Project:</strong> Presentea | <strong>Date:</strong> March 2024</p>
-				<p>Awarded a grant for the development of 'Presentea,' an AI-powered system that evaluates presentation skills using voice and body language analysis. The project was recognized for its creative use of Teachable Machine and its potential impact on public speaking education.</p>
-			</div>
-            <hr class="achievement-divider">
-			<div class="achievement-entry">
-				<h3>📜 Certified AI Practitioner - DeepLearning.AI</h3>
-				<p class="achievement-meta"><strong>Issuing Body:</strong> Coursera | <strong>Date:</strong> January 2024</p>
-				<p>Completed a rigorous certification program covering advanced machine learning concepts, including natural language processing, model deployment, and ethical AI. Applied these skills in several academic and personal projects.</p>
-			</div>
-            <hr class="achievement-divider">
-            <div class="achievement-entry">
-				<h3>🚀 Top 5 Finalist - National Mobile App Challenge</h3>
-				<p class="achievement-meta"><strong>Project:</strong> Heartlink | <strong>Date:</strong> November 2023</p>
-				<p>Our team's mobile app, 'Heartlink,' was selected as a top 5 finalist out of over 100 entries. The app was praised for its seamless user experience, real-time features using Firebase, and its thoughtful approach to connecting couples.</p>
-			</div>
-		</div>
-	</section>
-	<!-- achievements page end -->
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-space-950/70 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
+                    Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="projects.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Projects</a>
+                    <a href="achievements.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">Achievements</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-	<!--footer-copyright start-->
-	<footer id="footer-copyright" class="footer-copyright">
-		<!-- ... (Your existing footer section remains here) ... -->
-	</footer><!--/.footer-copyright-->
-	<!--footer-copyright end-->
+    <!-- Header -->
+    <section class="relative z-10 pt-32 pb-10 text-center px-4">
+        <h1 class="text-5xl font-bold mb-6 text-white">Awards & <span class="text-neon-primary">Recognition</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">Honors received for technical excellence, innovation, and competitive programming.</p>
+    </section>
 
-	<!-- ... (Copy all the <script> tags from the bottom of index.html here) ... -->
+    <!-- Timeline List -->
+    <section class="relative z-10 pb-20 max-w-4xl mx-auto px-4">
+        <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+            
+            <!-- Item 1 -->
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-neon-primary bg-space-950 shadow-[0_0_10px_rgba(139,92,246,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-neon-primary">
+                    <i data-lucide="trophy" class="w-5 h-5"></i>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-space-900/80 p-6 rounded-2xl border border-white/5 hover:border-neon-primary/50 shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between space-x-2 mb-2">
+                        <span class="font-bold text-lg text-white">Top 20 Finalist</span>
+                        <span class="text-xs font-bold text-neon-primary border border-neon-primary/30 bg-neon-primary/10 rounded-full px-2 py-0.5">June 2024</span>
+                    </div>
+                    <div class="text-sm font-semibold text-gray-400 mb-2">TSA GameFest 2024 (Nusantara Kafe)</div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Top 20 Finalist for the "Nusantara Kafe" tycoon simulation game.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <!-- <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-neon-secondary bg-space-950 shadow-[0_0_10px_rgba(6,182,212,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-neon-secondary">
+                    <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-space-900/80 p-6 rounded-2xl border border-white/5 hover:border-neon-secondary/50 shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between space-x-2 mb-2">
+                        <span class="font-bold text-lg text-white">Innovation Grant Recipient</span>
+                        <span class="text-xs font-bold text-neon-secondary border border-neon-secondary/30 bg-neon-secondary/10 rounded-full px-2 py-0.5">Mar 2024</span>
+                    </div>
+                    <div class="text-sm font-semibold text-gray-400 mb-2">AI Innovation (Presentea)</div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Awarded a grant for 'Presentea,' an AI system that evaluates presentation skills using voice and body language analysis.</p>
+                </div>
+            </div> -->
+
+            <!-- Item 3
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-space-950 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-gray-400 group-hover:text-white group-hover:border-white/50 transition-colors">
+                    <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-space-900/80 p-6 rounded-2xl border border-white/5 hover:border-white/20 shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between space-x-2 mb-2">
+                        <span class="font-bold text-lg text-white">Certified AI Practitioner</span>
+                        <span class="text-xs font-bold text-gray-400 border border-white/10 bg-white/5 rounded-full px-2 py-0.5">Jan 2024</span>
+                    </div>
+                    <div class="text-sm font-semibold text-gray-400 mb-2">DeepLearning.AI</div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Completed rigorous certification covering advanced ML concepts, NLP, model deployment, and ethical AI.</p>
+                </div>
+            </div> -->
+
+            <!-- Item 4 -->
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-space-950 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-gray-400 group-hover:text-white group-hover:border-white/50 transition-colors">
+                    <i data-lucide="smartphone" class="w-5 h-5"></i>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-space-900/80 p-6 rounded-2xl border border-white/5 hover:border-white/20 shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between space-x-2 mb-2">
+                        <span class="font-bold text-lg text-white">Top 10 Finalist</span>
+                        <span class="text-xs font-bold text-gray-400 border border-white/10 bg-white/5 rounded-full px-2 py-0.5">Nov 2023</span>
+                    </div>
+                    <div class="text-sm font-semibold text-gray-400 mb-2">National Mobile App Challenge LO Kreatif 2023</div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Recognized for app 'Mochi Feel', praised for seamless user experience and real-time Firebase integration.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-white/5 bg-space-950 text-center relative z-10">
+        <p class="text-gray-500 text-sm">&copy; 2025 Christian Tanjung.</p>
+    </footer>
+    <script> lucide.createIcons(); </script>
 </body>
 </html>

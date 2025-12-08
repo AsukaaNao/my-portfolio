@@ -1,227 +1,380 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <!-- meta data -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-	<!--font-family-->
-	<link
-		href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext"
-		rel="stylesheet">
-
-	<!-- title of site -->
-	<title>About Me - Christian's Portfolio</title>
-
-	<!-- For favicon png -->
-	<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png" />
-
-	<!--font-awesome.min.css-->
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-	<!--flat icon css-->
-	<link rel="stylesheet" href="assets/css/flaticon.css">
-
-	<!--animate.css-->
-	<link rel="stylesheet" href="assets/css/animate.css">
-
-	<!--owl.carousel.css-->
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-
-	<!--bootstrap.min.css-->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-	<!-- bootsnav -->
-	<link rel="stylesheet" href="assets/css/bootsnav.css">
-
-	<!--style.css-->
-	<link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- modern-style.css -->
-    <link rel="stylesheet" href="assets/css/modern-style.css">
-
-	<!--responsive.css-->
-	<link rel="stylesheet" href="assets/css/responsive.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Tanjung | About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        space: { 950: '#050505', 900: '#0a0a0a', 800: '#121212' },
+                        neon: { primary: '#8b5cf6', secondary: '#06b6d4', glow: 'rgba(139, 92, 246, 0.5)' }
+                    },
+                    animation: { 'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
+                }
+            }
+        }
+    </script>
 </head>
+<body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
-<body>
-	<header class="top-area">
-		<div class="header-area">
-			<!-- Start Navigation -->
-			<nav class="navbar navbar-default bootsnav navbar-fixed-top dark no-background">
-				<div class="container">
-					<!-- Start Header Navigation -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-							<i class="fa fa-bars"></i>
-						</button>
-						<a class="navbar-brand" href="/my-portfolio/">Christian's Portfolio</a>
-					</div><!--/.navbar-header-->
-					<!-- End Header Navigation -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse-slow"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neon-secondary/10 rounded-full blur-[120px] opacity-20"></div>
+    </div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<li><a href="/my-portfolio/">Home</a></li>
-							<li><a href="/my-portfolio/about.html">About</a></li>
-							<li><a href="/my-portfolio/projects.html">Projects</a></li>
-							<!-- <li><a href="achievements.html">Achievements</a></li> -->
-							<!-- <li><a href="#contact">Contact</a></li> -->
-						</ul><!--/.nav -->
-					</div><!-- /.navbar-collapse -->
-				</div><!--/.container-->
-			</nav><!--/nav-->
-			<!-- End Navigation -->
-		</div>
-		<div class="clearfix"></div>
-	</header>
-
-	<!-- about start -->
-	<section id="about" class="about" style="padding-top: 120px;">
-		<div class="container">
-            <div class="section-heading text-center">
-                <h2>About Me</h2>
+    <nav class="fixed w-full z-50 bg-space-950/70 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
+                    Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">About</a>
+                    <a href="projects.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Projects</a>
+                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
+                </div>
             </div>
-			<div class="about-content">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="single-about-txt">
-							<h3>
-								I am a student at Universitas Ciputra Surabaya with a strong enthusiasm for Machine
-								Learning and Artificial Intelligence. I am passionate about exploring how intelligent
-								systems can solve real-world problems and continuously strive to deepen my knowledge and
-								skills in this rapidly evolving field.
-							</h3>
-							<p>
-								My journey into technology began with a curiosity for how things work, which quickly evolved into a passion for software development and AI. I thrive in collaborative environments and enjoy tackling complex challenges with a team. Whether it's developing a machine learning model to detect cyberbullying or designing a user-friendly mobile app, I am driven by the desire to create meaningful and impactful solutions. I am always eager to learn new technologies and apply them to create innovative products.
-							</p>
-							<div class="row">
-								<div class="col-md-4 col-sm-12">
-									<div class="single-about-add-info">
-										<h3>phone</h3>
-										<p>+628124617788</p>
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-12">
-									<div class="single-about-add-info">
-										<h3>email</h3>
-										<p>christiantanjung27@gmail.com</p>
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-12">
-									<div class="single-about-add-info">
-										<h3>website</h3>
-										<p>yourgithub.io</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-                    <div class="col-sm-offset-1 col-sm-5">
-						<div class="single-about-img">
-							<img src="assets/images/profile_picture.jpg" alt="profile_image">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--about end -->
-    
-    <!-- skills start -->
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2>My Skills</h2>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
+                <div class="md:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neon-secondary tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-neon-secondary animate-pulse"></span>
+                        About The Developer
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Crafting Intelligence <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-neon-primary to-neon-secondary">Into Code</span>
+                    </h1>
+                    
+                    <div class="space-y-6 text-lg text-gray-400 leading-relaxed border-l-2 border-white/10 pl-6">
+                        <p>I am a student at <strong class="text-white">Universitas Ciputra Surabaya</strong> with a relentless drive for Machine Learning and AI. My passion lies in exploring the intersection of data and human experience.</p>
+                        <p>From training models to detect cyberbullying to architecting immersive mobile experiences, I thrive on turning complex logic into impactful, user-centric solutions.</p>
+                    </div>
+
+                    <!-- Updated Contact & Social Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <!-- Email -->
+                        <div class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-neon-primary/50 transition-all group">
+                            <div class="p-2.5 rounded-lg bg-white/5 text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-wider">Email</p>
+                                <p class="text-sm font-semibold text-white break-all">christiantanjung27@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Phone -->
+                        <div class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-neon-secondary/50 transition-all group">
+                            <div class="p-2.5 rounded-lg bg-white/5 text-neon-secondary group-hover:bg-neon-secondary group-hover:text-white transition-colors"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-wider">Phone</p>
+                                <p class="text-sm font-semibold text-white">+62 812 4617 788</p>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-blue-500/50 transition-all group">
+                            <div class="p-2.5 rounded-lg bg-white/5 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-wider">LinkedIn</p>
+                                <p class="text-sm font-semibold text-white">Connect with me</p>
+                            </div>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/yourprofile" target="_blank" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-pink-500/50 transition-all group">
+                            <div class="p-2.5 rounded-lg bg-white/5 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-wider">Instagram</p>
+                                <p class="text-sm font-semibold text-white">Follow my journey</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-neon-primary to-neon-secondary rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative rounded-2xl bg-space-900 border border-white/10 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-space-900 via-transparent to-transparent z-10"></div>
+                        <img src="assets/images/profile_picture.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Christian+Tanjung&background=0a0a0a&color=fff&size=512'" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Profile">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+                            <p class="text-neon-secondary font-mono text-sm mb-1">Status: Open to Work</p>
+                            <h3 class="text-white font-bold text-xl">Christian Tanjung</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">
-                        <h4>Programming Languages</h4>
-                        <ul>
-                            <li>Python</li>
-                            <li>JavaScript</li>
-                            <li>Swift</li>
-                            <li>Kotlin</li>
-                            <li>C#</li>
-                        </ul>
-                    </div>
+
+            <!-- Full Experience Section (1 Column) -->
+            <section class="mb-32">
+                 <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Full <span class="text-neon-secondary">Experience</span></h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-neon-secondary to-neon-primary mx-auto rounded-full"></div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">
-                        <h4>Frameworks & Libraries</h4>
-                        <ul>
-                            <li>Laravel</li>
-                            <li>Flask</li>
-                            <li>Scikit-learn</li>
-                            <li>Pandas</li>
-                            <li>Jetpack Compose</li>
-                        </ul>
+
+                <div class="grid grid-cols-1 gap-6 relative max-w-4xl mx-auto px-4">
+                    
+                    <!-- 1. AI Engineer Intern -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-secondary/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(6,182,212,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="p-4 bg-neon-secondary/10 rounded-2xl text-neon-secondary group-hover:bg-neon-secondary group-hover:text-black transition-colors shrink-0">
+                            <i data-lucide="bot" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-bold text-white">AI Engineer Intern</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">June 2025 - Oct 2025</span>
+                            </div>
+                            <p class="text-neon-secondary font-medium text-sm mb-4">RICE AI Consultant</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
+                                    <span>Developed a multi-channel AI chatbot using Docker, Ollama, & Chatwoot to centralize customer interactions.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
+                                    <span>Engineered and deployed multiple end-to-end AI applications as freebies for businesses.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
+                                    <span>Executed a complete website revamp by implementing a new UI/UX and conducting in-depth SEO optimization.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">
-                        <h4>Tools & Platforms</h4>
-                        <ul>
-                            <li>Git & GitHub</li>
-                            <li>Firebase</li>
-                            <li>Unity</li>
-                            <li>Android Studio</li>
-                            <li>Docker</li>
-                        </ul>
+
+                    <!-- 2. Digital Entrepreneurship Assistant -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-primary/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(139,92,246,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="p-4 bg-neon-primary/10 rounded-2xl text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors shrink-0">
+                            <i data-lucide="presentation" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-bold text-white">Digital Entrepreneurship & Innovation Asst.</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Feb 2025 - June 2025</span>
+                            </div>
+                            <p class="text-neon-primary font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
+                                    <span>Assisted the lecturer in preparing and delivering course materials and facilitated class discussions.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
+                                    <span>Mentored students in developing digital business ideas and projects.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
+                                    <span>Supported student research activities and helped maintain an interactive classroom environment.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
+                    <!-- 3. External Coordinator -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-white/20 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,255,255,0.05)] group flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="p-4 bg-white/5 rounded-2xl text-white group-hover:bg-white group-hover:text-black transition-colors shrink-0">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-bold text-white">External Coordinator</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">June 2024 - June 2025</span>
+                            </div>
+                            <p class="text-gray-300 font-medium text-sm mb-4">Student Union Informatics</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                                    <span>Planned, managed, and supervised external events organized by the student union.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                                    <span>Coordinated with external partners, sponsors, and stakeholders to ensure event success.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                                    <span>Facilitated collaborations that enhanced the union’s outreach and engagement.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 4. Visual Programming Assistant -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-purple-500/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(168,85,247,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="p-4 bg-purple-500/10 rounded-2xl text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors shrink-0">
+                            <i data-lucide="code" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-bold text-white">Visual Programming Assistant Lecturer</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Sep 2024 - Jan 2025</span>
+                            </div>
+                            <p class="text-purple-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
+                                    <span>Assisted students in understanding key concepts through hands-on guidance during classes.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
+                                    <span>Designed and developed practice problems to reinforce learning and build practical skills.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
+                                    <span>Supported students in effectively applying Jetpack Compose techniques in real-world scenarios.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 5. Web Development Assistant -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-pink-500/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(236,72,153,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="p-4 bg-pink-500/10 rounded-2xl text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors shrink-0">
+                            <i data-lucide="globe" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-bold text-white">Web Development Assistant Lecturer</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Sep 2024 - Jan 2025</span>
+                            </div>
+                            <p class="text-pink-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span>
+                                    <span>Assisted students in learning the fundamentals of front-end and back-end web development (HTML, CSS, JS).</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span>
+                                    <span>Supported student learning in frameworks such as Laravel, React, and ExpressJS.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span>
+                                    <span>Helped students gain practical skills to build and deploy functional web applications.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 6. Database Assistant -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-yellow-500/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(234,179,8,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="p-4 bg-yellow-500/10 rounded-2xl text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-colors shrink-0">
+                            <i data-lucide="database" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-bold text-white">Database Assistant Lecturer</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Feb 2024 - June 2024</span>
+                            </div>
+                            <p class="text-yellow-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span>
+                                    <span>Assisted students in understanding fundamental database concepts and relational models.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span>
+                                    <span>Guided students in using MySQL for practical applications and project development.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span>
+                                    <span>Provided hands-on support and clarified concepts during lab sessions and tutorials.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">
-                        <h4>AI & Machine Learning</h4>
-                        <ul>
-                            <li>Natural Language Processing</li>
-                            <li>Computer Vision</li>
-                            <li>Langchain</li>
-                            <li>Teachable Machine</li>
-                            <li>OpenAI API</li>
-                        </ul>
+
+                <!-- View Full Experience Button -->
+                <!-- <div class="flex justify-center mt-16">
+                    <a href="assets/download/Resume.pdf" download class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-space-900 border border-neon-primary/30 hover:border-neon-primary hover:bg-neon-primary/10 text-white font-medium transition-all group">
+                        View Full Experience
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div> -->
+            </section>
+
+            <div class="space-y-12">
+                <div class="text-center space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Technical <span class="text-neon-primary">Arsenal</span></h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-neon-primary to-neon-secondary mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Languages -->
+                    <div class="group relative bg-space-900 rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i data-lucide="code-2" class="w-24 h-24 text-white"></i></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center mb-6"><i data-lucide="terminal" class="w-6 h-6 text-orange-400"></i></div>
+                            <h3 class="text-lg font-bold text-white mb-4">Languages</h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span> Python</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span> JavaScript</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-600"></span> Swift</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Kotlin</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Frameworks -->
+                    <div class="group relative bg-space-900 rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i data-lucide="layers" class="w-24 h-24 text-white"></i></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-red-500/20 to-pink-500/20 flex items-center justify-center mb-6"><i data-lucide="layout-template" class="w-6 h-6 text-red-400"></i></div>
+                            <h3 class="text-lg font-bold text-white mb-4">Frameworks</h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Laravel</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-200"></span> Flask</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Pandas</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Jetpack Compose</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Tools -->
+                    <div class="group relative bg-space-900 rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i data-lucide="cpu" class="w-24 h-24 text-white"></i></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6"><i data-lucide="settings-2" class="w-6 h-6 text-cyan-400"></i></div>
+                            <h3 class="text-lg font-bold text-white mb-4">Tools</h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span> Git & GitHub</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Firebase</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-200"></span> Unity</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Docker</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- AI & ML -->
+                    <div class="group relative bg-space-800 rounded-2xl p-6 border border-neon-primary/30 shadow-[0_0_15px_rgba(139,92,246,0.1)] transition-all hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-neon-primary/5 to-transparent pointer-events-none"></div>
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i data-lucide="brain-circuit" class="w-24 h-24 text-white"></i></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-neon-primary/20 to-purple-500/20 flex items-center justify-center mb-6"><i data-lucide="sparkles" class="w-6 h-6 text-neon-primary"></i></div>
+                            <h3 class="text-lg font-bold text-white mb-4">AI & ML</h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-primary"></span> NLP</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-primary"></span> Computer Vision</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-primary"></span> Langchain</li>
+                                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-primary"></span> OpenAI API</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- skills end -->
-
-	<!--footer-copyright start-->
-	<footer id="footer-copyright" class="footer-copyright">
-		<div class="container">
-			<div class="hm-footer-copyright text-center">
-				<p>
-					&copy; copyright Christian Tanjung. design and developed by <a
-						href="https://www.themesine.com/">themesine</a>
-				</p><!--/p-->
-			</div><!--/.text-center-->
-		</div><!--/.container-->
-
-		<div id="scroll-Top">
-			<div class="return-to-top">
-				<i class="fa fa-angle-up " id="scroll-top"></i>
-			</div>
-
-		</div><!--/.scroll-Top-->
-	</footer><!--/.footer-copyright-->
-	<!--footer-copyright end-->
-
-	<!-- Include all js compiled plugins (below), or include individual files as needed -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/bootsnav.js"></script>
-	<script src="assets/js/jquery.sticky.js"></script>
-	<script src="assets/js/progressbar.js"></script>
-	<script src="assets/js/jquery.appear.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-	<script src="assets/js/custom.js"></script>
+    </main>
+    <footer class="py-8 border-t border-white/5 bg-space-950 text-center relative z-10"><p class="text-gray-500 text-sm">&copy; 2025 Christian Tanjung.</p></footer>
+    <script> lucide.createIcons(); </script>
 </body>
 </html>

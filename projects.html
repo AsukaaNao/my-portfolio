@@ -1,478 +1,791 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-	<!-- meta data -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!--font-family-->
-	<link
-		href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext"
-		rel="stylesheet">
-
-	<!-- title of site -->
-	<title>Projects - Christian's Portfolio</title>
-
-	<!-- For favicon png -->
-	<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png" />
-
-	<!--font-awesome.min.css-->
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-	<!--bootstrap.min.css-->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-	<!-- bootsnav -->
-	<link rel="stylesheet" href="assets/css/bootsnav.css">
-
-	<!--style.css-->
-	<link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- modern-style.css -->
-    <link rel="stylesheet" href="assets/css/modern-style.css">
-
-	<!--responsive.css-->
-	<link rel="stylesheet" href="assets/css/responsive.css">
-
-	<style>
-		.project-image-container {
-			width: 100%;
-			aspect-ratio: 3 / 4; /* Changed to portrait */
-			overflow: hidden;
-			border-radius: 15px; /* Slightly more rounded */
-			background-color: #2a2a2a;
-			margin-bottom: 20px;
-			padding: 1rem; /* Added padding */
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		@media (min-width: 992px) {
-			.project-image-container {
-				margin-bottom: 0;
-			}
-		}
-
-		.project-image-container img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain; /* Changed from cover to contain */
-			object-position: center;
-			border-radius: 5px; /* Inner image radius */
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Tanjung | Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        space: { 950: '#050505', 900: '#0a0a0a', 800: '#121212' },
+                        neon: { primary: '#8b5cf6', secondary: '#06b6d4' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ensure canvas stays in background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none; /* Let clicks pass through to content */
+        }
+        
+        /* Tooltip styles */
+        .tech-icon-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tech-icon-wrapper:hover::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(139, 92, 246, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0;
+            animation: fadeIn 0.2s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+    </style>
 </head>
+<body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
-<body>
-	<!-- top-area Start -->
-	<header class="top-area">
-		<div class="header-area">
-			<!-- Start Navigation -->
-			<nav class="navbar navbar-default bootsnav navbar-fixed-top dark no-background">
-				<div class="container">
-					<!-- Start Header Navigation -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-							<i class="fa fa-bars"></i>
-						</button>
-						<a class="navbar-brand" href="/my-portfolio/">Christian's Portfolio</a>
-					</div><!--/.navbar-header-->
-					<!-- End Header Navigation -->
+    <!-- Interactive Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<li><a href="/my-portfolio/">Home</a></li>
-							<li><a href="/my-portfolio/about.html">About</a></li>
-							<li><a href="/my-portfolio/projects.html">Projects</a></li>
-							<!-- <li><a href="achievements.html">Achievements</a></li> -->
-							<!-- <li><a href="#contact">Contact</a></li> -->
-						</ul><!--/.nav -->
-					</div><!-- /.navbar-collapse -->
-				</div><!--/.container-->
-			</nav><!--/nav-->
-			<!-- End Navigation -->
-		</div><!--/.header-area-->
-		<div class="clearfix"></div>
-	</header><!-- /.top-area-->
-	<!-- top-area End -->
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-space-950/70 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
+                    Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="projects.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">Projects</a>
+                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-	<!-- portfolio start -->
-	<section id="portfolio" class="portfolio" style="padding-top: 120px;">
-		<div class="portfolio-details">
-			<div class="section-heading text-center">
-				<h2>All Projects</h2>
-			</div>
-			<div class="container">
-				<div class="portfolio-content">
+    <!-- Header -->
+    <section class="relative z-10 pt-32 pb-10 text-center px-4">
+        <h1 class="text-5xl font-bold mb-6 text-white">Innovation <span class="text-neon-secondary">Lab</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of AI models, games, and applications engineered to solve real-world problems.</p>
+    </section>
 
-					<!-- Project: Career Craft -->
-					<div id="project-career-craft" class="row align-items-center mb-5 portfolio-card">
-						<div class="col-md-5">
-							<div class="project-image-container">
-								<img src="assets/images/portfolio/p4.png" alt="Career Craft" class="img-fluid">
-							</div>
-						</div>
-						<div class="col-md-7 mt-4 mt-md-0">
-							<h3>Career Craft</h3>
-							Career Craft is an AI-powered career guidance website designed to help users find the
-							perfect job and build a personalized learning path. By integrating advanced AI models,
-							Career Craft offers job recommendations tailored to your skills and interests, provides
-							step-by-step roadmaps for career growth, and features a 24/7 AI chatbot to answer all your
-							career-related questions. Built with Laravel and powered by Llama through Replicate, Career
-							Craft delivers seamless, real-time support for your career journey.
-							<br></br>
-							<h5>App Features:</h5>
-							<ul>
-								<li>- Personalized job recommendations based on your profile and preferences.</li>
-								<li>- Dynamic career roadmaps to guide your learning and skill development.</li>
-								<li>- 24/7 AI chatbot support to answer career-related questions anytime.</li>
-								<li>- User-friendly dashboard to manage your goals and track progress.</li>
-							</ul>
-							<br></br>
-							<h5>Tech Stack:</h5>
-							<ul>
-								<li>Laravel (for backend development)</li>
-								<li>Llama (via Replicate for AI chatbot)</li>
-								<li>HTML, CSS, JavaScript (for frontend)</li>
-								<li>MySQL (for database management)</li>
-							</ul>
-							<br></br>
-							<h5>Special Thanks to My Team</h5>
-							<ul class="team-members">
-								<li><a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>, <a
-										href="https://github.com/AkuSiapaHayO" target="_blank">Louis Mario</a>, <a
-										href="https://github.com/jasonmiracleg" target="_blank">Jason Miracle</a></li>,
-								and <a href="#" target="_blank">Filbert Patricio</a></li>
-							</ul>
-							<br></br>
-							<ul class="team-members">
-								<li>Check out the full code on GitHub: <a
-										href="https://github.com/jennimi/CareerCraft">https://github.com/jennimi/CareerCraft</a>
-								</li>
-							</ul>
-						</div>
-					</div>
+    <!-- Main Content Area -->
+    <div class="relative z-10 pb-20 px-4 max-w-7xl mx-auto space-y-32">
 
-					<!-- Project: Cyberbullying Detector -->
-					<div id="project-cyberbullying" class="row align-items-center mb-5 portfolio-card">
-						<div class="col-md-5">
-							<div class="project-image-container">
-								<img src="assets/images/portfolio/p7.png" alt="UI/UX Design" class="img-fluid">
-							</div>
-						</div>
-						<div class="col-md-7 mt-4 mt-md-0">
-							<h3>Cyberbullying Detector</h3>
-							In this project, I used Machine Learning to detect cyberbullying on social media. Together
-							with my team, we developed a model that can identify cyberbullying using a dataset of
-							approximately 50k tweets and implement it into a website to predict a single sentence.
-							<br></br>
-							<h5>App Features:</h5>
-							<ul>
-								<li>- Real-time cyberbullying detection on social media text.</li>
-								<li>- Classification of different types of cyberbullying (e.g., gender, religion,
-									ethnicity, etc.).</li>
-								<li>- User-friendly interface for text input and detection results.</li>
-							</ul>
-							<br></br>
-							<h5>Tech Stack:</h5>
-							<ul>
-								<li>Python (Scikit-learn, Pandas, NLTK)</li>
-								<li>Flask (for backend API)</li>
-								<li>HTML, CSS, JavaScript (for frontend)</li>
-							</ul>
-							<br></br>
-							<h5>Special Thanks to My Team</h5>
-							<ul class="team-members">
-								<li><a href="https://github.com/bryansamuelian" target="_blank">Bryan Samuel</a> and <a
-										href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a></li>
-								<br></br>
-								<ul class="team-members">
-									<li>Check out the full code on GitHub: <a
-											href="https://github.com/AsukaaNao/Cyberbullying_Detection">https://github.com/AsukaaNao/Cyberbullying_Detection</a>
-									</li>
-								</ul>
-						</div>
-					</div>
+        <!-- SECTION 1: AI & Web Solutions -->
+        <section id="ai-web" class="space-y-12">
+            <div class="flex items-center gap-4">
+                <div class="h-px bg-gradient-to-r from-transparent to-neon-primary flex-grow"></div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="brain-circuit" class="text-neon-primary"></i> AI & Web Solutions
+                </h2>
+                <div class="h-px bg-gradient-to-l from-transparent to-neon-primary flex-grow"></div>
+            </div>
 
-					<!-- Project: Yucca AI -->
-					<div id="project-yucca-ai" class="row align-items-center mb-5 portfolio-card">
-						<div class="col-md-5">
-							<div class="project-image-container">
-								<img src="assets/images/portfolio/p2.jpeg" alt="Web Design" class="img-fluid">
-							</div>
-						</div>
-						<div class="col-md-7 mt-4 mt-md-0">
-							<h3>Yucca AI</h3>
-							In this project, we developed an interactive chatbot that can answer various questions about
-							Yucca, the mascot of Universitas Ciputra Surabaya. This chatbot integrates OpenAI's language
-							model with a Unity-based 3D environment, allowing users to engage in real-time conversations
-							with Yucca inside an immersive application.
-							<br></br>
-							<h5>App Features:</h5>
-							<ul>
-								<li>- Real-time Q&A chatbot using voice recognition about Universitas Ciputra's mascot,
-									Yucca.</li>
-								<li>- 3D interactive environment built with Unity for an engaging user experience.</li>
-								<li>- Natural language understanding powered by OpenAI Langchain's language model.</li>
-							</ul>
-							<br></br>
-							<h5>Tech Stack:</h5>
-							<ul>
-								<li>Unity and C# (for 3D application and UI)</li>
-								<li>Langchain (for natural language processing)</li>
-								<li>Whisper (for speech recognition)</li>
-								<li>Fastnet API</li>
-								<li>ElevenLabs for voice synthesis</li>
-							</ul>
-							<br></br>
-							<h5>Special Thanks to My Team</h5>
-							<ul class="team-members">
-								<li><a href="https://github.com/bryansamuelian" target="_blank">Bryan Samuel</a>, <a
-										href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a>
-									, <a href="https://github.com/oxqlion" target="_blank">Rafi Abhista</a>, and <a
-										href="https://github.com/derendmarvel" target="_blank">Derend Marvel</a></li>
-							</ul>
-							<br></br>
-							<ul class="team-members">
-								<li>Check out the full code on GitHub: <a
-										href="https://github.com/HDWKG/Yuuka3">https://github.com/HDWKG/Yuuka3</a></li>
-							</ul>
-						</div>
-					</div>
+            <!-- Project 1: Career Craft -->
+            <div id="project-career-craft" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/p4.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Career+Craft'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Career Craft</h2>
+                        <p class="text-neon-primary font-mono text-sm">AI-Powered Career Guidance</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        AI-powered career guidance website designed to help users find the perfect job and build a personalized learning path. Integrating advanced AI models (Llama via Replicate) to offer tailored recommendations and a 24/7 AI chatbot.
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Laravel -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Laravel">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- MySQL -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="MySQL">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Meta/Llama (Using Meta Logo) -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Llama AI (Meta)">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                             <!-- JS -->
+                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                        </div>
+                    </div>
 
-					<!-- Project: Presentea -->
-					<div id="project-presentea" class="row align-items-center mb-5 portfolio-card">
-						<div class="col-md-5">
-							<div class="project-image-container">
-								<img src="assets/images/portfolio/p6.jpg" alt="Presentea - AI Presentation Scoring"
-									class="img-fluid">
-							</div>
-						</div>
-						<div class="col-md-7 mt-4 mt-md-0">
-							<h3>Presentea</h3>
-							Presentea is an innovative web-based AI system designed to evaluate and score a person's
-							presentation skills
-							based on voice and body language. By leveraging machine learning and advanced web
-							technologies, Presentea provides
-							real-time feedback to help users enhance their public speaking abilities.
-							<br></br>
-							<h5>App Features:</h5>
-							<ul>
-								<li>- AI-powered analysis of voice and body language for real-time presentation scoring.
-								</li>
-								<li>- Voice & Speech Analysis: Evaluates tone, clarity, pace, and confidence.</li>
-								<li>- Body Language Evaluation: Uses Teachable Machine to assess posture, gestures, and
-									facial expressions.</li>
-								<li>- Real-time scoring</li>
-								<li>- User-friendly web interface for seamless experience.</li>
-							</ul>
-							<br></br>
-							<h5>Tech Stack:</h5>
-							<ul>
-								<li>HTML, CSS, JavaScript (for web development)</li>
-								<li>Teachable Machine (for machine learning-based body language analysis)</li>
-							</ul>
-							<br></br>
-							<h5>Special Thanks to My Team</h5>
-							<ul class="team-members">
-								<li>
-									<a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>,
-									<a href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a>,
-									<a href="https://github.com/DaC00KIE" target="_blank">Gavin Lienardi</a>,
-									<a href="https://github.com/jasonmiracleg" target="_blank">Jason Miracle</a>, and
-									<a href="#" target="_blank">Gabriela Putri</a>
-								</li>
-							</ul>
-						</div>
-					</div>
+                    <div class="pt-2">
+                        <a href="https://github.com/jennimi/CareerCraft" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-					<!-- Project: Nusantara Kafe -->
-					<div id="project-nusantara-kafe" class="row align-items-center mb-5 portfolio-card">
-						<div class="col-md-5">
-							<div class="project-image-container">
-								<img src="assets/images/portfolio/p6.png" alt="Nusantara Kafe Game"
-									class="img-fluid">
-							</div>
-						</div>
-						<div class="col-md-7 mt-4 mt-md-0">
-							<h3>Nusantara Kafe</h3>
-								Nusantara Kafe is a cafe tycoon simulation game developed in Unity, where players build
-								and manage
-								their own traditional Indonesian cafe. Set in a vibrant, culturally rich environment,
-								the game challenges
-								players to serve local delicacies, expand their business, and keep customers happy
-								through smart strategy
-								and creative customization.
-							<br><br>
-							<h5>Game Features:</h5>
-							<ul>
-								<li>- Cafe Customization: Design and upgrade your cafe with traditional Indonesian decor
-									and furniture.</li>
-								<li>- Local Dishes: Serve iconic foods like nasi goreng, sate, and es cendol to attract
-									customers.</li>
-								<li>- Business Strategy: Manage ingredients, pricing, and customer satisfaction to
-									maximize profits.</li>
-								<li>- Staff Management: Hire and train employees to improve service and efficiency.</li>
-								<li>- Progressive Gameplay: Unlock new recipes, decorations, and cafe branches as you
-									grow.</li>
-							</ul>
-							<br>
-							<h5>Tech Stack:</h5>
-							<ul>
-								<li>Unity (Game Engine)</li>
-								<li>C# (Game Logic)</li>
-							</ul>
-							<br>
-							<h5>Special Thanks to My Team</h5>
-							<ul class="team-members">
-								<li>
-									<a href="https://github.com/bryansamuelian" target="_blank">Bryan Samuel</a>, 
-									<a href="https://github.com/HDWKG" target="_blank">Nathan Darrell</a>
-									, <a href="https://github.com/oxqlion" target="_blank">Rafi Abhista</a>, and 
-									<a href="https://github.com/derendmarvel" target="_blank">Derend Marvel</a>
-								</li>
-							</ul>
-							<br></br>
-							<ul class="team-members">
-								<li>Check out the game at itch.io: <a
-									href="https://hdwk.itch.io/nusantara-kafe">https://hdwk.itch.io/nusantara-kafe</a></li>
-								<li>Check out the full code on GitHub: <a
-										href="https://github.com/HDWKG/TSA-GameFest">https://github.com/HDWKG/TSA-GameFest</a></li>
-							</ul>
-						</div>
-					</div>
+            <!-- Project 2: Cyberbullying Detector -->
+            <div id="project-cyberbullying" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/p7.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Cyberbullying'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Cyberbullying Detector</h2>
+                        <p class="text-neon-secondary font-mono text-sm">NLP Classification Model</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        Machine Learning project using Scikit-learn and NLTK to detect cyberbullying in tweets. Trained on a 50k dataset, it classifies different types of toxicity (gender, religion, ethnicity) and is deployed via Flask.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Python -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Flask -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Flask">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                            <!-- Scikit-learn -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Scikit-learn">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Pandas -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Pandas">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://github.com/AsukaaNao/Cyberbullying_Detection" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-					<!-- Project: Heartlink -->
-					<div id="project-heartlink" class="row align-items-center mb-5 portfolio-card">
-						<div class="col-md-5">
-							<div class="project-image-container">
-								<img src="assets/images/portfolio/p3.png" alt="Heartlink App" class="img-fluid">
-							</div>
-						</div>
-						<div class="col-md-7 mt-4 mt-md-0">
-							<h3>Heartlink</h3>
-							Heartlink is a couple-focused mobile application designed to keep soulmates connected
-							anytime and anywhere. With real-time location tracking, instant notifications, and seamless
-							media sharing, couples can stay close, share moments, and ensure each other's safety. Built
-							with Swift and powered by Firebase, Heartlink delivers a smooth and reliable experience for
-							modern relationships.
-							<br></br>
-							<h5>App Features:</h5>
-							<ul>
-								<li>- Real-time location tracking between connected partners.</li>
-								<li>- Instant notifications for check-ins, arrivals, or custom events.</li>
-								<li>- Chat system with support for photos, videos, and text messages.</li>
-								<li>- Secure and private connection exclusively between paired users.</li>
-							</ul>
-							<br></br>
-							<h5>Tech Stack:</h5>
-							<ul>
-								<li>Swift (for iOS UI development)</li>
-								<li>Firebase (for real-time database, authentication, and cloud storage)</li>
-								<li>Cloud Firestore (for scalable NoSQL database)</li>
-								<li>Firebase Storage (for media uploads and management)</li>
-							</ul>
-							<br></br>
-							<h5>Special Thanks to My Team</h5>
-							<ul class="team-members">
-								<li><a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>, <a
-										href="https://github.com/HDWKG" target="_blank">Shelfinna</a>
-									, and <a href="" target="_blank">Filbert Patricio</a></li>
-							</ul>
-							<br></br>
-							<ul class="team-members">
-								<li>Check out the full code on GitHub: <a
-										href="https://github.com/AsukaaNao/Heartlink">https://github.com/AsukaaNao/Heartlink</a>
-								</li>
-							</ul>
-						</div>
-					</div>
+            <!-- Project 3: Presentea -->
+            <div id="project-presentea" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/p6.jpg" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Presentea'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Presentea</h2>
+                        <p class="text-neon-primary font-mono text-sm">AI Presentation Scoring</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        An innovative web-based AI system designed to evaluate and score a person's presentation skills based on voice tone, clarity, and body language. Uses Teachable Machine for gesture analysis and provides real-time feedback.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- HTML -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="HTML5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- JS -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Teachable Machine -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Teachable Machine">
+                                <img src="https://cdn-1.webcatalog.io/catalog/teachable-machine/teachable-machine-icon-filled-256.webp?v=1719392793780" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
+                            <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-					<!-- Project: Mochi Feel -->
-					<div id="project-mochi-feel" class="row align-items-center mb-5 portfolio-card">
-						<div class="col-md-5">
-							<div class="project-image-container">
-								<img src="assets/images/portfolio/p5.png" alt="Mochi Feel" class="img-fluid">
-							</div>
-						</div>
-						<div class="col-md-7 mt-4 mt-md-0">
-							<h3>Mochi Feel</h3>
-							Mochi Feel is a mental health journaling app designed to help users track their emotions,
-							reflect on their daily experiences, and promote self-awareness. With an intuitive interface
-							and calming design, Mochi Feel makes it easy to express your thoughts and monitor your
-							mental well-being over time. The app utilizes Firebase for secure data storage and Jetpack
-							Compose to deliver a smooth, modern Android experience.
-							<br></br>
-							<h5>App Features:</h5>
-							<ul>
-								<li>- Daily mood tracking with personalized emotion tags.</li>
-								<li>- Guided journaling prompts to encourage self-reflection.</li>
-								<li>- Calendar view to revisit past entries and mood trends.</li>
-								<li>- Secure and private data storage through Firebase.</li>
-								<li>- Minimalist and relaxing UI designed with Jetpack Compose.</li>
-							</ul>
-							<br></br>
-							<h5>Tech Stack:</h5>
-							<ul>
-								<li>Android Studio (for app development)</li>
-								<li>Jetpack Compose (for modern UI design)</li>
-								<li>Firebase (for authentication and real-time database)</li>
-								<li>Kotlin (as the primary programming language)</li>
-							</ul>
-							<br></br>
-							<h5>Special Thanks to My Team</h5>
-							<ul class="team-members">
-								<li><a href="https://github.com/jennimi" target="_blank">Karyna Sanjaya</a>, <a
-										href="https://github.com/DaC00KIE" target="_blank">Gavin Lienardi</a>, <a
-										href="https://github.com/jasonmiracleg" target="_blank">Jason Miracle</a></li>,
-								and <a href="https://github.com/AttraqtiA" target="_blank">Samuel Miracle</a></li>
-							</ul>
-							<br></br>
-							<ul class="team-members">
-								<li>Check out the full code on GitHub: <a
-										href="https://github.com/AttraqtiA/Mochi_Feel">https://github.com/AttraqtiA/Mochi_Feel</a>
-								</li>
-							</ul>
-						</div>
-					</div>
+            <!-- New Project 4: Chatwoot + Ollama -->
+            <div id="project-chatwoot" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/chatwoot_ollama.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Chatwoot+%2B+Ollama'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Chatwoot + Ollama CRM</h2>
+                        <p class="text-neon-secondary font-mono text-sm">Automated Customer Engagement</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        A multi-channel CRM automation system integrating Chatwoot with local LLMs via Ollama. It centralizes and automates customer interactions from WhatsApp, Gmail, and Messenger using a Dockerized architecture for privacy and control.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Docker -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Docker">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Python -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Ollama (using terminal icon as placeholder if needed, or specific if available) -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white" data-title="Ollama">
+                                <i data-lucide="bot" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
+                            <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-				</div><!-- /.portfolio-content -->
-			</div><!-- /.container -->
-		</div><!-- /.portfolio-details -->
-	</section>
-	<!-- portfolio end -->
+            <!-- New Project 5: Leads RiceAI -->
+            <div id="project-leads-riceai" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/leads_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Leads+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Leads RiceAI</h2>
+                        <p class="text-neon-primary font-mono text-sm">Lead Management System</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        A specialized lead generation and management platform for AI consultancy services. Designed to streamline client intake and project matching.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Next.js -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                            <!-- React -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Gemini -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://leads.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-	<!--footer-copyright start-->
-	<footer id="footer-copyright" class="footer-copyright">
-		<div class="container">
-			<div class="hm-footer-copyright text-center">
-				<p>
-					&copy; copyright Christian Tanjung. design and developed by <a
-						href="https://www.themesine.com/">themesine</a>
-				</p><!--/p-->
-			</div><!--/.text-center-->
-		</div><!--/.container-->
+            <!-- New Project 6: Content RiceAI -->
+            <div id="project-content-riceai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/content_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Content+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Content RiceAI</h2>
+                        <p class="text-neon-secondary font-mono text-sm">AI Content Generation</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        An AI-driven content platform aimed at automating and enhancing digital marketing materials and copy.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Next.js -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                            <!-- React -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Gemini -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://content.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-		<div id="scroll-Top">
-			<div class="return-to-top">
-				<i class="fa fa-angle-up " id="scroll-top"></i>
-			</div>
+            <!-- New Project 7: Visual RiceAI -->
+            <div id="project-visual-riceai" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/visual_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Visual+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Visual RiceAI</h2>
+                        <p class="text-neon-primary font-mono text-sm">AI Image Processing</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        A visual AI tool leveraging generative models for image creation and enhancement for business applications.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Next.js -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                            <!-- React -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Gemini -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://visual.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-		</div><!--/.scroll-Top-->
+            <!-- New Project 8: Link RiceAI -->
+            <div id="project-link-riceai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/link_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Link+RiceAI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Link RiceAI</h2>
+                        <p class="text-neon-secondary font-mono text-sm">Smart Link Management</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        A centralized link management and bio-link solution for professional branding and portfolio sharing.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Next.js -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Next.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                            <!-- React -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Gemini -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Gemini API">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://link.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-	</footer><!--/.footer-copyright-->
-	<!--footer-copyright end-->
+            <!-- New Project 9: Defect Detection -->
+            <div id="project-defect-detection" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                        <img src="assets/images/portfolio/defect_detection.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Defect+Detection'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Defect Detection System</h2>
+                        <p class="text-neon-primary font-mono text-sm">Industrial Computer Vision</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        An AI training and prediction system designed to identify defects in manufacturing. Allows for training on custom datasets and swapping models to adapt to different visual inspection tasks.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Python -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- TensorFlow/PyTorch (Placeholder AI) -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white" data-title="TensorFlow / PyTorch">
+                                <i data-lucide="cpu" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
+                            <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-	<!-- Include all js compiled plugins (below), or include individual files as needed -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/bootsnav.js"></script>
-	<script src="assets/js/custom.js"></script>
+        </section>
 
+        <!-- SECTION 2: Game & Interactive -->
+        <section id="game-interactive" class="space-y-12">
+            <div class="flex items-center gap-4">
+                <div class="h-px bg-gradient-to-r from-transparent to-neon-secondary flex-grow"></div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="gamepad-2" class="text-neon-secondary"></i> Game & Interactive
+                </h2>
+                <div class="h-px bg-gradient-to-l from-transparent to-neon-secondary flex-grow"></div>
+            </div>
+
+            <!-- Project 4: Nusantara Kafe -->
+            <div id="project-nusantara-kafe" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/p6.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Nusantara+Kafe'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Nusantara Kafe</h2>
+                        <p class="text-neon-secondary font-mono text-sm">TSA GameFest 2024 Winner</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        A cafe tycoon simulation game where players manage a traditional Indonesian cafe. Serve local delicacies like satay and es cendol, manage staff, and upgrade your shop. Won 1st place for cultural representation and gameplay.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Unity -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Unity">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- C# -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="C#">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                             <!-- Gamepad Icon for Game Design -->
+                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white" data-title="Game Design">
+                                <i data-lucide="gamepad" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 flex flex-wrap gap-4">
+                        <a href="https://hdwk.itch.io/nusantara-kafe" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> Play Game
+                        </a>
+                        <a href="https://github.com/HDWKG/TSA-GameFest" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Yucca AI -->
+            <div id="project-yucca-ai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                        <img src="assets/images/portfolio/p2.jpeg" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Yucca+AI'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Yucca AI</h2>
+                        <p class="text-neon-secondary font-mono text-sm">Interactive 3D Chatbot</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        Interactive chatbot answering questions about Yucca, the university mascot. Integrates OpenAI's Langchain with a Unity-based 3D environment for real-time voice conversations using Whisper and ElevenLabs.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Unity -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Unity">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                             <!-- LangChain -->
+                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="LangChain">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/LangChain_logo.png" class="w-8 h-8 md:w-10 md:h-10 object-contain">
+                            </div>
+                            <!-- OpenAI -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="OpenAI / Whisper">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://github.com/HDWKG/Yuuka3" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Mobile Applications -->
+        <section id="mobile-apps" class="space-y-12">
+            <div class="flex items-center gap-4">
+                <div class="h-px bg-gradient-to-r from-transparent to-pink-500 flex-grow"></div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="smartphone" class="text-pink-500"></i> Mobile Applications
+                </h2>
+                <div class="h-px bg-gradient-to-l from-transparent to-pink-500 flex-grow"></div>
+            </div>
+
+            <!-- Project 6: Heartlink -->
+            <div id="project-heartlink" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
+                    <img src="assets/images/portfolio/p3.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Heartlink'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+            <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Heartlink</h2>
+                    <p class="text-pink-500 font-mono text-sm">Couple-Focused iOS App</p>
+                </div>
+                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                    A couple-focused iOS mobile application for real-time location tracking, chat, and media sharing. It keeps soulmates connected using Firebase for backend services and Swift for the native UI. Top 5 Finalist at Mobile App Challenge.
+                </p>
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <!-- Swift -->
+                        <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Swift">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                        </div>
+                        <!-- Firebase -->
+                        <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Firebase">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8 md:w-10 md:h-10">
+                        </div>
+                    </div>
+                </div>
+                    <div class="pt-2">
+                    <a href="https://github.com/AsukaaNao/Heartlink" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
+                        <i data-lucide="github" class="w-4 h-4"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 7: Mochi Feel -->
+        <div id="project-mochi-feel" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-l from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                <div class="w-full md:w-5/12 relative z-10">
+                    <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
+                        <img src="assets/images/portfolio/p5.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Mochi+Feel'" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Mochi Feel</h2>
+                        <p class="text-pink-500 font-mono text-sm">Mental Health Journaling</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                        A mental health journaling app tracking emotions and promoting self-awareness. Features daily mood tracking, calendar views, and secure Firebase storage, wrapped in a calming UI built with Jetpack Compose.
+                    </p>
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <!-- Kotlin -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Kotlin">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                             <!-- Jetpack Compose -->
+                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Jetpack Compose">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                            <!-- Firebase -->
+                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors" data-title="Firebase">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://github.com/AttraqtiA/Mochi_Feel" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="py-8 border-t border-white/5 bg-space-950 text-center relative z-10">
+        <p class="text-gray-500 text-sm">&copy; 2025 Christian Tanjung.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Canvas Animation Script
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        const particleCount = 60; // Number of dots
+        const connectionDistance = 150; // Distance to draw lines
+        const mouseDistance = 200; // Mouse interaction radius
+
+        let mouse = { x: null, y: null };
+
+        // Handle resize
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // Track mouse
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; // Velocity
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(6, 182, 212, '; // Purple or Cyan
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                // Mouse interaction
+                if (mouse.x != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouseDistance) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (mouseDistance - distance) / mouseDistance;
+                        const directionX = forceDirectionX * force * 0.5;
+                        const directionY = forceDirectionY * force * 0.5;
+                        this.vx -= directionX;
+                        this.vy -= directionY;
+                    }
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + '0.5)';
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Draw connections
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        // Opacity based on distance
+                        let opacity = 1 - (distance / connectionDistance);
+                        ctx.strokeStyle = 'rgba(255, 255, 255, ' + (opacity * 0.1) + ')';
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+    </script>
 </body>
-
 </html>

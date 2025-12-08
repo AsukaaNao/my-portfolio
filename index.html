@@ -1,237 +1,253 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <!-- meta data -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!--font-family-->
-    <link
-        href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext"
-        rel="stylesheet">
-
-    <!-- title of site -->
-    <title>Christian's Portfolio</title>
-
-    <!-- For favicon png -->
-    <link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png" />
-
-    <!--font-awesome.min.css-->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-    <!--flat icon css-->
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-
-    <!--animate.css-->
-    <link rel="stylesheet" href="assets/css/animate.css">
-
-    <!--owl.carousel.css-->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-
-    <!--bootstrap.min.css-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-    <!-- bootsnav -->
-    <link rel="stylesheet" href="assets/css/bootsnav.css">
-
-    <!--style.css-->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- modern-style.css -->
-    <link rel="stylesheet" href="assets/css/modern-style.css">
-
-    <!--responsive.css-->
-    <link rel="stylesheet" href="assets/css/responsive.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Tanjung | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        space: { 950: '#050505', 900: '#0a0a0a', 800: '#121212' },
+                        neon: { primary: '#8b5cf6', secondary: '#06b6d4', glow: 'rgba(139, 92, 246, 0.5)' }
+                    },
+                    animation: { 'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
+                }
+            }
+        }
+    </script>
 </head>
+<body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
-<body>
-    <!-- top-area Start -->
-    <header class="top-area">
-        <div class="header-area">
-            <!-- Start Navigation -->
-            <nav class="navbar navbar-default bootsnav navbar-fixed-top dark no-background">
-				<div class="container">
-					<!-- Start Header Navigation -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-							<i class="fa fa-bars"></i>
-						</button>
-						<a class="navbar-brand" href="/my-portfolio/">Christian's Portfolio</a>
-					</div><!--/.navbar-header-->
-					<!-- End Header Navigation -->
+    <!-- Background Ambience -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-neon-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse-slow"></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-neon-secondary/10 rounded-full blur-[120px] opacity-20"></div>
+    </div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<li><a href="/my-portfolio/">Home</a></li>
-							<li><a href="/my-portfolio/about.html">About</a></li>
-							<li><a href="/my-portfolio/projects.html">Projects</a></li>
-							<!-- <li><a href="achievements.html">Achievements</a></li> -->
-							<!-- <li><a href="#contact">Contact</a></li> -->
-						</ul><!--/.nav -->
-					</div><!-- /.navbar-collapse -->
-				</div><!--/.container-->
-			</nav><!--/nav-->
-            <!-- End Navigation -->
-        </div><!--/.header-area-->
-        <div class="clearfix"></div>
-    </header><!-- /.top-area-->
-    <!-- top-area End -->
-
-    <!--welcome-hero start -->
-    <section id="welcome-hero" class="welcome-hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="header-text">
-                        <h2>hi <span>,</span> i am <br> Christian <br> Tanjung <span>.</span> </h2>
-                        <p>Informatics Student and AI Enthusiast</p>
-                        <a href="assets/download/Resume.pdf" download>Download Resume</a>
-                    </div><!--/.header-text-->
-                </div><!--/.col-->
-            </div><!-- /.row-->
-        </div><!-- /.container-->
-    </section><!--/.welcome-hero-->
-    <!--welcome-hero end -->
-
-    <!--achievements start -->
-    <section id="achievements" class="achievements-section">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2>Achievements & Recognition</h2>
-            </div>
-            <div class="row">
-                <!-- Achievement 1 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🏆</div>
-                        <h3>Finalist Top 20</h3>
-                        <p>TSA GameFest 2024 - Nusantara Kafe</p>
-                    </div>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-space-950/70 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
+                    Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">Home</a>
+                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="projects.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Projects</a>
+                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
                 </div>
-                <!-- Achievement 2 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🏆</div>
-                        <h3>Finalist Top 10</h3>
-                        <p>LO Kreatif 2023 - Mochi Feel</p>
-                    </div>
-                </div>
-                <!-- Achievement 3 -->
-                 <!-- <div class="col-md-4 col-sm-6">
-                    <div class="achievement-card">
-                        <div class="achievement-icon">💡</div>
-                        <h3>AI Innovation Grant</h3>
-                        <p>Awarded for the development of the "Presentea" AI scoring system.</p>
-                    </div>
-                </div> -->
             </div>
         </div>
-    </section>
-    <!--achievements end -->
+    </nav>
 
-    <!--featured-projects start -->
-    <section id="featured-projects" class="portfolio" style="padding-top: 100px;">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2>Featured Projects</h2>
-            </div>
-            <div class="portfolio-content">
-                <!-- Project 1: Career Craft -->
-                <div class="row align-items-center mb-5 portfolio-card">
-                    <div class="col-md-5">
-                        <div class="project-image-container">
-                            <img src="assets/images/portfolio/p4.png" alt="Career Craft" class="img-fluid">
-                        </div>
+    <!-- Hero Section -->
+    <main class="relative z-10 pt-32 pb-20 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="space-y-8 animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neon-secondary tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-neon-secondary animate-pulse"></span>
+                        Portfolio 2024
                     </div>
-                    <div class="col-md-7 mt-4">
-                        <h3>Career Craft</h3>
-                        Career Craft is an AI-powered career guidance website designed to help users find the
-                        perfect job and build a personalized learning path. By integrating advanced AI models,
-                        Career Craft offers job recommendations tailored to your skills and interests...
-                        <br><br>
-                        <a href="projects.html#project-career-craft" class="details-link">View Details</a>
+                    
+                    <h1 class="text-6xl md:text-7xl font-bold leading-tight text-white">
+                        Hi, I'm <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-neon-primary to-neon-secondary">Christian Tanjung</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-400 max-w-lg leading-relaxed border-l-2 border-white/10 pl-6">
+                        Informatics Student & <span class="text-white font-medium">AI Enthusiast</span> building intelligent systems for the future.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="projects.html" class="px-8 py-4 rounded-full bg-neon-primary hover:bg-neon-primary/90 text-white font-bold transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] flex items-center gap-2">
+                            View Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="assets/download/Resume.pdf" download class="px-8 py-4 rounded-full bg-transparent border border-white/20 hover:border-neon-secondary text-white font-medium transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.2)] flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4"></i> Download CV
+                        </a>
                     </div>
                 </div>
 
-                <!-- Project 2: Cyberbullying Detector -->
-                <div class="row align-items-center mb-5 portfolio-card">
-                    <div class="col-md-5">
-                        <div class="project-image-container">
-                            <img src="assets/images/portfolio/p7.png" alt="UI/UX Design" class="img-fluid">
+                <!-- Hero Visual -->
+                <div class="relative flex justify-center group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary to-neon-secondary rounded-full blur-[80px] opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
+                         <img src="assets/images/profile_picture.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Christian+Tanjung&background=0a0a0a&color=fff&size=512'" class="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-700" alt="Profile">
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 md:bottom-10 md:right-10 bg-space-900 border border-white/10 p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                        <div class="p-2 bg-neon-secondary/20 rounded-lg text-neon-secondary">
+                            <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase">Focus</p>
+                            <p class="text-sm font-bold text-white">Machine Learning</p>
                         </div>
                     </div>
-                    <div class="col-md-7 mt-4">
-                        <h3>Cyberbullying Detector</h3>
-                        In this project, I used Machine Learning to detect cyberbullying on social media. Together
-                        with my team, we developed a model that can identify cyberbullying using a dataset of
-                        approximately 50k tweets...
-                        <br><br>
-                        <a href="projects.html#project-cyberbullying" class="details-link">View Details</a>
+                </div>
+            </div>
+
+            <!-- Featured Preview -->
+            <div class="mt-32">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Latest <span class="text-neon-secondary">Deployments</span></h2>
+                        <div class="h-1 w-20 bg-neon-secondary rounded-full"></div>
                     </div>
+                    <a href="projects.html" class="hidden md:flex items-center gap-2 text-gray-400 hover:text-white transition-colors">Explore all <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
-                <!-- Project 3: Yucca AI -->
-                <div class="row align-items-center mb-5 portfolio-card">
-                    <div class="col-md-5">
-                        <div class="project-image-container">
-                            <img src="assets/images/portfolio/p2.jpeg" alt="Web Design" class="img-fluid">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <a href="projects.html#project-career-craft" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/portfolio/p4.png" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Career+Craft'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                         </div>
-                    </div>
-                    <div class="col-md-7 mt-4">
-                        <h3>Yucca AI</h3>
-                        In this project, we developed an interactive chatbot that can answer various questions about
-                        Yucca, the mascot of Universitas Ciputra Surabaya. This chatbot integrates OpenAI's language
-                        model with a Unity-based 3D environment...
-                        <br><br>
-                        <a href="projects.html#project-yucca-ai" class="details-link">View Details</a>
-                    </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Career Craft</h3>
+                            <p class="text-sm text-gray-400 line-clamp-2">AI-powered career guidance website designed to help users find the perfect job.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="projects.html#project-cyberbullying" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/portfolio/p7.png" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Cyberbullying'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Cyberbullying Detector</h3>
+                            <p class="text-sm text-gray-400 line-clamp-2">Machine Learning model to detect toxicity in social media text.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <a href="projects.html#project-yucca-ai" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/portfolio/p2.jpeg" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Yucca+AI'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Yucca AI</h3>
+                            <p class="text-sm text-gray-400 line-clamp-2">Interactive 3D chatbot powered by OpenAI and Unity.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div class="text-center">
-                <a href="projects.html" class="view-all-btn">View All Projects</a>
-            </div>
+
+            <!-- New Experience Cards Section -->
+            <section class="mt-32">
+                 <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Latest <span class="text-neon-primary">Experience</span></h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-neon-primary to-neon-secondary mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative max-w-7xl mx-auto px-4">
+                    
+                    <!-- 1. AI Engineer Intern -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-secondary/50 transition-all hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(6,182,212,0.1)] group flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-neon-secondary/10 rounded-xl text-neon-secondary group-hover:bg-neon-secondary group-hover:text-black transition-colors">
+                                <i data-lucide="bot" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10">June 2025 - Oct 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">AI Engineer Intern</h3>
+                        <p class="text-neon-secondary font-medium text-sm mb-4">RICE AI Consultant</p>
+                        <ul class="space-y-3 text-sm text-gray-400 flex-grow">
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
+                                <span>Developed a multi-channel AI chatbot using Docker, Ollama, & Chatwoot.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
+                                <span>Engineered and deployed multiple end-to-end AI applications for businesses.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
+                                <span>Executed a complete website revamp with new UI/UX and SEO optimization.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Digital Entrepreneurship Assistant -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-primary/50 transition-all hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.1)] group flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-neon-primary/10 rounded-xl text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors">
+                                <i data-lucide="presentation" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10">Feb 2025 - June 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Digital Entrep. Asst.</h3>
+                        <p class="text-neon-primary font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                        <ul class="space-y-3 text-sm text-gray-400 flex-grow">
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
+                                <span>Mentored students in developing digital business ideas and projects.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
+                                <span>Facilitated class discussions and supported student research activities.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
+                                <span>Assisted in preparing and delivering engaging course materials.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. External Coordinator -->
+                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-white/20 transition-all hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.05)] group flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 bg-white/5 rounded-xl text-white group-hover:bg-white group-hover:text-black transition-colors">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10">June 2024 - June 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">External Coordinator</h3>
+                        <p class="text-gray-300 font-medium text-sm mb-4">Student Union Informatics</p>
+                        <ul class="space-y-3 text-sm text-gray-400 flex-grow">
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                                <span>Planned and supervised external events and collaborations.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                                <span>Coordinated with external partners, sponsors, and stakeholders.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
+                                <span>Ensured smooth execution through logistics and communication.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="about.html" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                        View Full Experience <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </section>
+
         </div>
-    </section>
-    <!--featured-projects end -->
+    </main>
 
-    <!--footer-copyright start-->
-    <footer id="footer-copyright" class="footer-copyright">
-        <div class="container">
-			<div class="hm-footer-copyright text-center">
-				<p>
-					&copy; copyright Christian Tanjung. design and developed by <a
-						href="https://www.themesine.com/">themesine</a>
-				</p><!--/p-->
-			</div><!--/.text-center-->
-		</div><!--/.container-->
+    <footer class="py-8 border-t border-white/5 bg-space-950 text-center relative z-10">
+        <p class="text-gray-500 text-sm">&copy; 2025 Christian Tanjung.</p>
+    </footer>
 
-		<div id="scroll-Top">
-			<div class="return-to-top">
-				<i class="fa fa-angle-up " id="scroll-top"></i>
-			</div>
-
-		</div><!--/.scroll-Top-->
-    </footer><!--/.footer-copyright-->
-    <!--footer-copyright end-->
-
-    <!-- Include all js compiled plugins (below), or include individual files as needed -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootsnav.js"></script>
-    <script src="assets/js/jquery.sticky.js"></script>
-    <script src="assets/js/progressbar.js"></script>
-    <script src="assets/js/jquery.appear.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="assets/js/custom.js"></script>
-
+    <script> lucide.createIcons(); </script>
 </body>
-
 </html>

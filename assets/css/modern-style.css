@@ -4,9 +4,10 @@
 :root {
     --background-dark: #121212;
     --primary-surface: #1E1E1E;
-    --primary-text: #EAEAEA;
+    --primary-text: #F5F5F5;
     --heading-text: #FFFFFF;
-    --accent-color: #6E48AA; /* New modern purple */
+    --accent-color: #6E48AA;
+    /* New modern purple */
     --border-color: #333333;
 }
 
@@ -16,17 +17,21 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
     /* color: var(--heading-text); */
     font-weight: 600;
 }
 
-a, .header-text h2 span {
+a,
+.header-text h2 span {
     color: var(--accent-color);
 }
 
 a:hover {
-    color: #8D69C1; /* Lighter purple for hover */
+    color: #8D69C1;
+    /* Lighter purple for hover */
     text-decoration: none;
 }
 
@@ -42,13 +47,13 @@ a:hover {
     font-weight: 600;
 }
 
-.navbar-default .nav > li > a {
+.navbar-default .nav>li>a {
     color: var(--primary-text);
     font-weight: 500;
 }
 
-.navbar-default .nav > li > a:hover,
-.navbar-default .nav > li > a:focus {
+.navbar-default .nav>li>a:hover,
+.navbar-default .nav>li>a:focus {
     color: var(--accent-color);
     background-color: transparent;
 }
@@ -56,7 +61,7 @@ a:hover {
 /* Scrolled State */
 .top-nav-collapse {
     background-color: var(--primary-surface);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* === 3. REVAMPED HERO SECTION === */
@@ -70,14 +75,14 @@ a:hover {
     position: relative;
 }
 
-.welcome-hero:before{
+.welcome-hero:before {
     position: absolute;
     content: " ";
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(30,30,30,0.85);
+    background: rgba(30, 30, 30, 0.85);
 }
 
 .header-text h2 {
@@ -102,10 +107,14 @@ a:hover {
     letter-spacing: 1px;
     transition: all 0.3s ease;
     border: 2px solid var(--accent-color);
-    white-space: nowrap; /* Prevents text from breaking onto a new line */
-    display: inline-flex; /* Use flexbox for alignment */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    white-space: nowrap;
+    /* Prevents text from breaking onto a new line */
+    display: inline-flex;
+    /* Use flexbox for alignment */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
 }
 
 .header-text a:hover {
@@ -129,12 +138,14 @@ a:hover {
 
 .portfolio-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(110, 72, 170, 0.1); /* Adjusted glow to match new accent */
+    box-shadow: 0 10px 30px rgba(110, 72, 170, 0.1);
+    /* Adjusted glow to match new accent */
 }
 
 .portfolio-card h3 {
     margin-bottom: 15px;
     font-size: 28px;
+    color: var(--accent-color);
 }
 
 .portfolio-card h5 {
@@ -170,6 +181,7 @@ a:hover {
 #featured-projects .project-image-container {
     aspect-ratio: 16 / 9;
 }
+
 #featured-projects .project-image-container img {
     object-fit: cover;
 }
@@ -203,7 +215,8 @@ a:hover {
 
 .achievement-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(110, 72, 170, 0.1); /* Adjusted glow to match new accent */
+    box-shadow: 0 10px 30px rgba(110, 72, 170, 0.1);
+    /* Adjusted glow to match new accent */
 }
 
 .achievement-icon {
@@ -380,7 +393,8 @@ a:hover {
     color: var(--accent-color);
 }
 
-.contact-add-head h3, .contact-add-head p {
+.contact-add-head h3,
+.contact-add-head p {
     color: var(--heading-text);
 }
 
@@ -398,6 +412,7 @@ a:hover {
     border-top: 1px solid var(--border-color);
 }
 
-.footer-copyright p, .footer-copyright p a {
+.footer-copyright p,
+.footer-copyright p a {
     color: #aaa;
 }
