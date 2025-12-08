@@ -71,24 +71,30 @@
 
 <body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
-   
-    <div class="fixed inset-0 z-0 pointer-events-none">
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- <div class="fixed inset-0 z-0 pointer-events-none">
         <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-neon-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse-slow"></div>
         <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-neon-secondary/10 rounded-full blur-[120px] opacity-20"></div>
-    </div>
+    </div> -->
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-space-950/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group z-50">
+                <a href="index.html"
+                    class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group z-50">
                     Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
                 </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
-                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
-                    <a href="projects.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">Projects</a>
-                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
+                    <a href="index.html"
+                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html"
+                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="projects.html"
+                        class="text-sm font-medium text-white border-b-2 border-neon-primary">Projects</a>
+                    <a href="achievements.html"
+                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
                 </div>
                 <div class="md:hidden flex items-center z-50">
                     <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
@@ -97,19 +103,24 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-space-950/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 z-40">
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-space-950/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 z-40">
             <a href="index.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Home</a>
             <a href="about.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">About</a>
-            <a href="projects.html" class="text-2xl font-bold text-white border-b-2 border-neon-primary pb-1">Projects</a>
-            <a href="achievements.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Achievements</a>
+            <a href="projects.html"
+                class="text-2xl font-bold text-white border-b-2 border-neon-primary pb-1">Projects</a>
+            <a href="achievements.html"
+                class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Achievements</a>
         </div>
     </nav>
 
 
     <!-- Header -->
     <section class="relative z-10 pt-32 pb-10 text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Innovation <span class="text-neon-secondary">Lab</span></h1>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of AI models, games, and applications engineered to solve real-world problems.</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Innovation <span
+                class="text-neon-secondary">Lab</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of AI models, games, and applications engineered
+            to solve real-world problems.</p>
     </section>
 
     <!-- Main Content Area -->
@@ -155,7 +166,8 @@
                             <!-- Docker -->
                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
                                 data-title="Chatwoot">
-                                <img src="https://products.containerize.com/id/live-chat/chatwoot/menu_image.png" class="w-8 h-8 md:w-10 md:h-10">
+                                <img src="https://products.containerize.com/id/live-chat/chatwoot/menu_image.png"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
                                 data-title="Docker">
@@ -171,7 +183,8 @@
                             <!-- Ollama (using terminal icon as placeholder if needed, or specific if available) -->
                             <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
                                 data-title="Ollama">
-                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/ollama.png" class="w-8 h-8 md:w-10 md:h-10">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/ollama.png"
+                                    class="w-8 h-8 md:w-10 md:h-10">
                             </div>
                         </div>
                     </div>
@@ -421,7 +434,7 @@
                 <div class="w-full md:w-7/12 space-y-6 relative z-10">
                     <div>
                         <h2 class="text-3xl font-bold text-white mb-2">Defect Detection Tools/h2>
-                        <p class="text-neon-primary font-mono text-sm">Industrial Computer Vision</p>
+                            <p class="text-neon-primary font-mono text-sm">Industrial Computer Vision</p>
                     </div>
                     <p class="text-gray-400 leading-relaxed text-sm md:text-base">
                         An AI training and prediction system designed to identify defects in manufacturing. Allows for
