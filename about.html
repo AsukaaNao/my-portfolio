@@ -30,44 +30,59 @@
         <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neon-secondary/10 rounded-full blur-[120px] opacity-20"></div>
     </div>
 
-    <nav class="fixed w-full z-50 bg-space-950/70 backdrop-blur-md border-b border-white/5">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-space-950/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
+                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group z-50">
                     Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
                 </a>
+                
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
                     <a href="about.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">About</a>
                     <a href="projects.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Projects</a>
                     <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
                 </div>
+
+                <div class="md:hidden flex items-center z-50">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-space-950/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 z-40">
+            <a href="index.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Home</a>
+            <a href="about.html" class="text-2xl font-bold text-white border-b-2 border-neon-primary pb-1">About</a>
+            <a href="projects.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Projects</a>
+            <a href="achievements.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Achievements</a>
         </div>
     </nav>
 
-    <main class="relative z-10 pt-32 pb-20">
+    <main class="relative z-10 pt-28 md:pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
-                <div class="md:col-span-7 space-y-8">
+            <!-- Hero -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-24 md:mb-32">
+                <div class="md:col-span-7 space-y-8 order-2 md:order-1 text-center md:text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neon-secondary tracking-wider uppercase">
                         <span class="w-2 h-2 rounded-full bg-neon-secondary animate-pulse"></span>
                         About The Developer
                     </div>
                     
-                    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
                         Crafting Intelligence <br>
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-neon-primary to-neon-secondary">Into Code</span>
                     </h1>
                     
-                    <div class="space-y-6 text-lg text-gray-400 leading-relaxed border-l-2 border-white/10 pl-6">
+                    <div class="space-y-6 text-base md:text-lg text-gray-400 leading-relaxed border-l-0 md:border-l-2 border-white/10 md:pl-6">
                         <p>I am a student at <strong class="text-white">Universitas Ciputra Surabaya</strong> with a relentless drive for Machine Learning and AI. My passion lies in exploring the intersection of data and human experience.</p>
                         <p>From training models to detect cyberbullying to architecting immersive mobile experiences, I thrive on turning complex logic into impactful, user-centric solutions.</p>
                     </div>
 
-                    <!-- Updated Contact & Social Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <!-- Email -->
+                    <!-- Contact & Social -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-left">
                         <div class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-neon-primary/50 transition-all group">
                             <div class="p-2.5 rounded-lg bg-white/5 text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></div>
                             <div>
@@ -75,8 +90,6 @@
                                 <p class="text-sm font-semibold text-white break-all">christiantanjung27@gmail.com</p>
                             </div>
                         </div>
-                        
-                        <!-- Phone -->
                         <div class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-neon-secondary/50 transition-all group">
                             <div class="p-2.5 rounded-lg bg-white/5 text-neon-secondary group-hover:bg-neon-secondary group-hover:text-white transition-colors"><i data-lucide="phone" class="w-5 h-5"></i></div>
                             <div>
@@ -84,18 +97,14 @@
                                 <p class="text-sm font-semibold text-white">+62 812 4617 788</p>
                             </div>
                         </div>
-
-                        <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/in/christian-tanjung-wirjoatmodjo-79a09b257/" target="_blank" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-blue-500/50 transition-all group">
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-blue-500/50 transition-all group">
                             <div class="p-2.5 rounded-lg bg-white/5 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></div>
                             <div>
                                 <p class="text-[10px] text-gray-500 uppercase tracking-wider">LinkedIn</p>
                                 <p class="text-sm font-semibold text-white">Connect with me</p>
                             </div>
                         </a>
-
-                        <!-- Instagram -->
-                        <a href="https://www.instagram.com/christian._.tanjung/" target="_blank" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-pink-500/50 transition-all group">
+                        <a href="https://instagram.com/yourprofile" target="_blank" class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-pink-500/50 transition-all group">
                             <div class="p-2.5 rounded-lg bg-white/5 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></div>
                             <div>
                                 <p class="text-[10px] text-gray-500 uppercase tracking-wider">Instagram</p>
@@ -105,22 +114,19 @@
                     </div>
                 </div>
 
-                <div class="md:col-span-5 relative group">
+                <!-- Profile Pic -->
+                <div class="md:col-span-5 relative group order-1 md:order-2 flex justify-center">
                     <div class="absolute -inset-1 bg-gradient-to-r from-neon-primary to-neon-secondary rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
-                    <div class="relative rounded-2xl bg-space-900 border border-white/10 overflow-hidden">
+                    <div class="relative w-72 md:w-full rounded-2xl bg-space-900 border border-white/10 overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-space-900 via-transparent to-transparent z-10"></div>
                         <img src="assets/images/profile_picture.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Christian+Tanjung&background=0a0a0a&color=fff&size=512'" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Profile">
-                        <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
-                            <p class="text-neon-secondary font-mono text-sm mb-1">Status: Open to Work</p>
-                            <h3 class="text-white font-bold text-xl">Christian Tanjung</h3>
-                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Full Experience Section (1 Column) -->
-            <section class="mb-32">
-                 <div class="text-center mb-16">
+            <section class="mb-24 md:mb-32">
+                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="text-3xl font-bold text-white mb-4">Full <span class="text-neon-secondary">Experience</span></h2>
                     <div class="w-24 h-1 bg-gradient-to-r from-neon-secondary to-neon-primary mx-auto rounded-full"></div>
                 </div>
@@ -128,190 +134,130 @@
                 <div class="grid grid-cols-1 gap-6 relative max-w-4xl mx-auto px-4">
                     
                     <!-- 1. AI Engineer Intern -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-secondary/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(6,182,212,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="p-4 bg-neon-secondary/10 rounded-2xl text-neon-secondary group-hover:bg-neon-secondary group-hover:text-black transition-colors shrink-0">
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-secondary/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                        <div class="p-4 bg-neon-secondary/10 rounded-2xl text-neon-secondary group-hover:bg-neon-secondary group-hover:text-black transition-colors shrink-0 w-fit">
                             <i data-lucide="bot" class="w-8 h-8"></i>
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                                <h3 class="text-xl font-bold text-white">AI Engineer Intern</h3>
-                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">June 2025 - Oct 2025</span>
+                                <h3 class="text-lg md:text-xl font-bold text-white">AI Engineer Intern</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">June 2025 - Oct 2025</span>
                             </div>
                             <p class="text-neon-secondary font-medium text-sm mb-4">RICE AI Consultant</p>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
-                                    <span>Developed a multi-channel AI chatbot using Docker, Ollama, & Chatwoot to centralize customer interactions.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
-                                    <span>Engineered and deployed multiple end-to-end AI applications as freebies for businesses.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
-                                    <span>Executed a complete website revamp by implementing a new UI/UX and conducting in-depth SEO optimization.</span>
-                                </li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span><span>Developed multi-channel AI chatbot using Docker & Ollama.</span></li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span><span>Engineered end-to-end AI applications for businesses.</span></li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span><span>Executed complete website revamp with SEO optimization.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 2. Digital Entrepreneurship Assistant -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-primary/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(139,92,246,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="p-4 bg-neon-primary/10 rounded-2xl text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors shrink-0">
+                    <!-- 2. Digital Entrep -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-primary/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                        <div class="p-4 bg-neon-primary/10 rounded-2xl text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors shrink-0 w-fit">
                             <i data-lucide="presentation" class="w-8 h-8"></i>
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                                <h3 class="text-xl font-bold text-white">Digital Entrepreneurship & Innovation Asst.</h3>
-                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Feb 2025 - June 2025</span>
+                                <h3 class="text-lg md:text-xl font-bold text-white">Digital Entrep. & Innovation Asst.</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Feb 2025 - June 2025</span>
                             </div>
                             <p class="text-neon-primary font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
-                                    <span>Assisted the lecturer in preparing and delivering course materials and facilitated class discussions.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
-                                    <span>Mentored students in developing digital business ideas and projects.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
-                                    <span>Supported student research activities and helped maintain an interactive classroom environment.</span>
-                                </li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span><span>Mentored students in digital business ideas.</span></li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span><span>Facilitated class discussions and research.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 3. External Coordinator -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-white/20 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,255,255,0.05)] group flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="p-4 bg-white/5 rounded-2xl text-white group-hover:bg-white group-hover:text-black transition-colors shrink-0">
+                    <!-- 3. External Coord -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-white/20 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                        <div class="p-4 bg-white/5 rounded-2xl text-white group-hover:bg-white group-hover:text-black transition-colors shrink-0 w-fit">
                             <i data-lucide="users" class="w-8 h-8"></i>
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                                <h3 class="text-xl font-bold text-white">External Coordinator</h3>
-                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">June 2024 - June 2025</span>
+                                <h3 class="text-lg md:text-xl font-bold text-white">External Coordinator</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">June 2024 - June 2025</span>
                             </div>
                             <p class="text-gray-300 font-medium text-sm mb-4">Student Union Informatics</p>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
-                                    <span>Planned, managed, and supervised external events organized by the student union.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
-                                    <span>Coordinated with external partners, sponsors, and stakeholders to ensure event success.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
-                                    <span>Facilitated collaborations that enhanced the union’s outreach and engagement.</span>
-                                </li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span><span>Planned and supervised external events.</span></li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span><span>Coordinated with partners and sponsors.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 4. Visual Programming Assistant -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-purple-500/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(168,85,247,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="p-4 bg-purple-500/10 rounded-2xl text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors shrink-0">
+                    <!-- 4. Visual Prog -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-purple-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                        <div class="p-4 bg-purple-500/10 rounded-2xl text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors shrink-0 w-fit">
                             <i data-lucide="code" class="w-8 h-8"></i>
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                                <h3 class="text-xl font-bold text-white">Visual Programming Assistant Lecturer</h3>
-                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Sep 2024 - Jan 2025</span>
+                                <h3 class="text-lg md:text-xl font-bold text-white">Visual Programming Asst.</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Sep 2024 - Jan 2025</span>
                             </div>
                             <p class="text-purple-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
-                                    <span>Assisted students in understanding key concepts through hands-on guidance during classes.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
-                                    <span>Designed and developed practice problems to reinforce learning and build practical skills.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
-                                    <span>Supported students in effectively applying Jetpack Compose techniques in real-world scenarios.</span>
-                                </li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span><span>Guided students in Jetpack Compose.</span></li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span><span>Designed practice problems for skill building.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 5. Web Development Assistant -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-pink-500/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(236,72,153,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="p-4 bg-pink-500/10 rounded-2xl text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors shrink-0">
+                    <!-- 5. Web Dev -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-pink-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                        <div class="p-4 bg-pink-500/10 rounded-2xl text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors shrink-0 w-fit">
                             <i data-lucide="globe" class="w-8 h-8"></i>
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                                <h3 class="text-xl font-bold text-white">Web Development Assistant Lecturer</h3>
-                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Sep 2024 - Jan 2025</span>
+                                <h3 class="text-lg md:text-xl font-bold text-white">Web Development Asst.</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Sep 2024 - Jan 2025</span>
                             </div>
                             <p class="text-pink-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span>
-                                    <span>Assisted students in learning the fundamentals of front-end and back-end web development (HTML, CSS, JS).</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span>
-                                    <span>Supported student learning in frameworks such as Laravel, React, and ExpressJS.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span>
-                                    <span>Helped students gain practical skills to build and deploy functional web applications.</span>
-                                </li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span><span>Taught HTML, CSS, JS, Laravel, React.</span></li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span><span>Assisted in building functional web apps.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 6. Database Assistant -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-yellow-500/50 transition-all hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(234,179,8,0.1)] group flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="p-4 bg-yellow-500/10 rounded-2xl text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-colors shrink-0">
+                    <!-- 6. Database -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-yellow-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                        <div class="p-4 bg-yellow-500/10 rounded-2xl text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-colors shrink-0 w-fit">
                             <i data-lucide="database" class="w-8 h-8"></i>
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                                <h3 class="text-xl font-bold text-white">Database Assistant Lecturer</h3>
-                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-2 md:mt-0">Feb 2024 - June 2024</span>
+                                <h3 class="text-lg md:text-xl font-bold text-white">Database Assistant</h3>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Feb 2024 - June 2024</span>
                             </div>
                             <p class="text-yellow-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
                             <ul class="space-y-2 text-sm text-gray-400">
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span>
-                                    <span>Assisted students in understanding fundamental database concepts and relational models.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span>
-                                    <span>Guided students in using MySQL for practical applications and project development.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span>
-                                    <span>Provided hands-on support and clarified concepts during lab sessions and tutorials.</span>
-                                </li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span><span>Guided MySQL applications.</span></li>
+                                <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0"></span><span>Clarified database concepts in labs.</span></li>
                             </ul>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- View Full Experience Button -->
-                <!-- <div class="flex justify-center mt-16">
+                <div class="flex justify-center mt-16">
                     <a href="assets/download/Resume.pdf" download class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-space-900 border border-neon-primary/30 hover:border-neon-primary hover:bg-neon-primary/10 text-white font-medium transition-all group">
                         View Full Experience
                         <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                </div> -->
+                </div>
             </section>
 
-            <div class="space-y-12">
+            <!-- Skills (Preserved) -->
+            <div class="space-y-12 mb-20">
                 <div class="text-center space-y-4">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Technical <span class="text-neon-primary">Arsenal</span></h2>
                     <div class="w-24 h-1 bg-gradient-to-r from-neon-primary to-neon-secondary mx-auto rounded-full"></div>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Languages -->
                     <div class="group relative bg-space-900 rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all hover:-translate-y-1 overflow-hidden">
@@ -375,6 +321,19 @@
         </div>
     </main>
     <footer class="py-8 border-t border-white/5 bg-space-950 text-center relative z-10"><p class="text-gray-500 text-sm">&copy; 2025 Christian Tanjung.</p></footer>
-    <script> lucide.createIcons(); </script>
+    <script>
+        lucide.createIcons();
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -23,241 +23,209 @@
         }
     </script>
     <style>
-        /* Ensure canvas stays in background */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     </style>
 </head>
 <body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
-    <!-- Interactive Canvas Background -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-space-950/70 backdrop-blur-md border-b border-white/5">
+    <!-- Navbar with Mobile Toggle -->
+    <nav class="fixed w-full z-50 bg-space-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-neon-primary transition-colors group z-50">
                     Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
                 </a>
+
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">Home</a>
-                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
-                    <a href="projects.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Projects</a>
-                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
+                    <a href="index.html" class="text-sm font-medium text-white border-b-2 border-neon-primary py-2">Home</a>
+                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors py-2">About</a>
+                    <a href="projects.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors py-2">Projects</a>
+                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors py-2">Achievements</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center z-50">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-space-950/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 z-40 transition-all duration-300">
+            <a href="index.html" class="text-2xl font-bold text-white border-b-2 border-neon-primary pb-1">Home</a>
+            <a href="about.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">About</a>
+            <a href="projects.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Projects</a>
+            <a href="achievements.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Achievements</a>
+            
+            <!-- Close Button Logic handled by re-clicking menu or link -->
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <main class="relative z-10 pt-32 pb-20 min-h-screen flex items-center">
+    <main class="relative z-10 pt-28 md:pt-32 pb-20 min-h-screen flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
                 
                 <!-- Text Content -->
-                <div class="space-y-8 animate-fade-in-up">
+                <div class="order-2 md:order-1 space-y-6 md:space-y-8 animate-fade-in-up text-center md:text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neon-secondary tracking-wider uppercase">
                         <span class="w-2 h-2 rounded-full bg-neon-secondary animate-pulse"></span>
                         Portfolio
                     </div>
                     
-                    <h1 class="text-6xl md:text-7xl font-bold leading-tight text-white">
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight text-white">
                         Hi, I'm <br>
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-neon-primary to-neon-secondary">Christian Tanjung</span>
                     </h1>
                     
-                    <p class="text-xl text-gray-400 max-w-lg leading-relaxed border-l-2 border-white/10 pl-6">
+                    <p class="text-lg md:text-xl text-gray-400 max-w-lg mx-auto md:mx-0 leading-relaxed border-l-0 md:border-l-2 border-white/10 md:pl-6">
                         Informatics Student & <span class="text-white font-medium">AI Enthusiast</span> building intelligent systems for the future.
                     </p>
 
-                    <div class="flex flex-col gap-6">
-                        <div class="flex flex-wrap gap-4 pt-2">
-                            <a href="projects.html" class="px-8 py-4 rounded-full bg-neon-primary hover:bg-neon-primary/90 text-white font-bold transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] flex items-center gap-2">
+                    <div class="flex flex-col items-center md:items-start gap-6">
+                        <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
+                            <a href="projects.html" class="px-8 py-3.5 rounded-full bg-neon-primary hover:bg-neon-primary/90 text-white font-bold transition-all shadow-lg hover:shadow-neon-primary/50 flex items-center gap-2">
                                 View Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
-                            <a href="assets/download/Resume.pdf" download class="px-8 py-4 rounded-full bg-transparent border border-white/20 hover:border-neon-secondary text-white font-medium transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.2)] flex items-center gap-2">
+                            <a href="assets/download/Resume.pdf" download class="px-8 py-3.5 rounded-full bg-transparent border border-white/20 hover:border-neon-secondary text-white font-medium transition-all hover:shadow-neon-secondary/20 flex items-center gap-2">
                                 <i data-lucide="download" class="w-4 h-4"></i> Download CV
                             </a>
                         </div>
 
                         <!-- Social Links -->
-                        <div class="flex gap-6 items-center text-gray-400 pl-2">
-                            <a href="https://github.com/AsukaaNao" target="_blank" class="hover:text-white hover:scale-110 transition-all duration-300">
-                                <i data-lucide="github" class="w-6 h-6"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/christian-tanjung-wirjoatmodjo-79a09b257" target="_blank" class="hover:text-white hover:scale-110 transition-all duration-300">
-                                <i data-lucide="linkedin" class="w-6 h-6"></i>
-                            </a>
-                            <a href="https://instagram.com/christian._.tanjung" target="_blank" class="hover:text-white hover:scale-110 transition-all duration-300">
-                                <i data-lucide="instagram" class="w-6 h-6"></i>
-                            </a>
+                        <div class="flex gap-6 items-center text-gray-400 md:pl-2">
+                            <a href="https://github.com/yourusername" target="_blank" class="hover:text-white hover:scale-110 transition-all duration-300"><i data-lucide="github" class="w-6 h-6"></i></a>
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="hover:text-white hover:scale-110 transition-all duration-300"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                            <a href="mailto:christiantanjung27@gmail.com" class="hover:text-white hover:scale-110 transition-all duration-300"><i data-lucide="mail" class="w-6 h-6"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hero Visual -->
-                <div class="relative flex justify-center group">
-                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary to-neon-secondary rounded-full blur-[80px] opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-                    <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
+                <div class="order-1 md:order-2 relative flex justify-center group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary to-neon-secondary rounded-full blur-[60px] md:blur-[80px] opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div class="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
                          <img src="assets/images/profile_picture.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Christian+Tanjung&background=0a0a0a&color=fff&size=512'" class="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-700" alt="Profile">
                     </div>
                     
-                    <!-- Floating Focus Badge (Animated) -->
-                    <div class="absolute -bottom-6 -right-6 md:bottom-10 md:right-10 bg-space-900 border border-white/10 p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                    <!-- Floating Focus Badge -->
+                    <div class="hidden md:flex absolute -bottom-6 -right-6 md:bottom-10 md:right-10 bg-space-900 border border-white/10 p-4 rounded-2xl shadow-xl items-center gap-3 animate-bounce" style="animation-duration: 3s;">
                         <div id="focus-icon-bg" class="p-2 bg-neon-secondary/20 rounded-lg text-neon-secondary transition-colors duration-500">
-                            <div id="focus-icon-container" class="transition-opacity duration-500">
-                                <i data-lucide="brain-circuit" class="w-6 h-6"></i>
-                            </div>
+                            <div id="focus-icon-container"><i data-lucide="brain-circuit" class="w-6 h-6"></i></div>
                         </div>
                         <div>
                             <p class="text-xs text-gray-400 uppercase tracking-wider">Current Focus</p>
-                            <p id="focus-text" class="text-sm font-bold text-white min-w-[160px] transition-opacity duration-500">Machine Learning</p>
+                            <p id="focus-text" class="text-sm font-bold text-white min-w-[160px]">Machine Learning</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Featured Preview -->
-            <div class="mt-32">
-                <div class="flex justify-between items-end mb-12">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Latest <span class="text-neon-secondary">Deployments</span></h2>
-                        <div class="h-1 w-20 bg-neon-secondary rounded-full"></div>
+            <div class="mt-24 md:mt-32">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-12 gap-4">
+                    <div class="text-center md:text-left w-full md:w-auto">
+                        <h2 class="text-3xl font-bold text-white mb-2">Latest <span class="text-neon-secondary">Projects</span></h2>
+                        <div class="h-1 w-20 bg-neon-secondary rounded-full mx-auto md:mx-0"></div>
                     </div>
                     <a href="projects.html" class="hidden md:flex items-center gap-2 text-gray-400 hover:text-white transition-colors">Explore all <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Card 1 -->
-                    <a href="projects.html#project-career-craft" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
+                    <!-- Project cards remain same, but stack on mobile -->
+                    <a href="projects.html#project-chatwoot" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
                         <div class="h-48 overflow-hidden">
-                            <img src="assets/images/portfolio/p4.png" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Career+Craft'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                            <img src="assets/images/portfolio/chatwoot_ollama.png" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Career+Craft'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Career Craft</h3>
-                            <p class="text-sm text-gray-400 line-clamp-2">AI-powered career guidance website designed to help users find the perfect job.</p>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Chatwoot + Ollama CRM</h3>
+                            <p class="text-sm text-gray-400 line-clamp-2">A multi-channel CRM automation system integrating Chatwoot with local LLMs via Ollama.</p>
+                        </div>
+                    </a>
+                    
+                    <a href="projects.html#project-visual-riceai" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/portfolio/visual.png" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Cyberbullying'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Visual RiceAI</h3>
+                            <p class="text-sm text-gray-400 line-clamp-2">A visual AI tool leveraging generative models for image creation and enhancement for business
+                        applications.</p>
                         </div>
                     </a>
 
-                    <!-- Card 2 -->
-                    <a href="projects.html#project-cyberbullying" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
+                    <a href="projects.html#project-defect-detection" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
                         <div class="h-48 overflow-hidden">
-                            <img src="assets/images/portfolio/p7.png" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Cyberbullying'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                            <img src="assets/images/portfolio/defect_detection.png" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Yucca+AI'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Cyberbullying Detector</h3>
-                            <p class="text-sm text-gray-400 line-clamp-2">Machine Learning model to detect toxicity in social media text.</p>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Defect Detection Tools</h3>
+                            <p class="text-sm text-gray-400 line-clamp-2">An AI training and prediction system designed to identify defects in manufacturing.</p>
                         </div>
                     </a>
-
-                    <!-- Card 3 -->
-                    <a href="projects.html#project-yucca-ai" class="group relative bg-space-900 border border-white/5 rounded-2xl overflow-hidden hover:border-neon-primary/50 transition-all hover:-translate-y-2">
-                        <div class="h-48 overflow-hidden">
-                            <img src="assets/images/portfolio/p2.jpeg" onerror="this.src='https://placehold.co/600x400/121212/FFF?text=Yucca+AI'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-primary transition-colors">Yucca AI</h3>
-                            <p class="text-sm text-gray-400 line-clamp-2">Interactive 3D chatbot powered by OpenAI and Unity.</p>
-                        </div>
-                    </a>
+                </div>
+                
+                <div class="mt-8 text-center md:hidden">
+                    <a href="projects.html" class="inline-flex items-center gap-2 text-neon-secondary font-medium">Explore all projects <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
 
             <!-- Latest Experience Section -->
-            <section class="mt-32">
-                 <div class="text-center mb-16">
+            <section class="mt-24 md:mt-32">
+                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="text-3xl font-bold text-white mb-4">Latest <span class="text-neon-primary">Experience</span></h2>
                     <div class="w-24 h-1 bg-gradient-to-r from-neon-primary to-neon-secondary mx-auto rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative max-w-7xl mx-auto px-4">
-                    
-                    <!-- 1. AI Engineer Intern -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-secondary/50 transition-all hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(6,182,212,0.1)] group flex flex-col h-full">
+                    <!-- Cards here (same as before but ensure spacing works on mobile) -->
+                    <!-- 1. AI Engineer -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-secondary/50 transition-all group flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-neon-secondary/10 rounded-xl text-neon-secondary group-hover:bg-neon-secondary group-hover:text-black transition-colors">
-                                <i data-lucide="bot" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10">June 2025 - Oct 2025</span>
+                            <div class="p-3 bg-neon-secondary/10 rounded-xl text-neon-secondary"><i data-lucide="bot" class="w-6 h-6"></i></div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] md:text-xs font-medium text-gray-400 border border-white/10">Jun 25 - Oct 25</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-1">AI Engineer Intern</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-1">AI Engineer Intern</h3>
                         <p class="text-neon-secondary font-medium text-sm mb-4">RICE AI Consultant</p>
                         <ul class="space-y-3 text-sm text-gray-400 flex-grow">
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
-                                <span>Developed a multi-channel AI chatbot using Docker, Ollama, & Chatwoot.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
-                                <span>Engineered and deployed multiple end-to-end AI applications for businesses.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span>
-                                <span>Executed a complete website revamp with new UI/UX and SEO optimization.</span>
-                            </li>
+                            <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span><span>Multi-channel AI chatbot with Docker/Ollama.</span></li>
+                            <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-secondary shrink-0"></span><span>End-to-end AI apps deployment.</span></li>
                         </ul>
                     </div>
 
-                    <!-- 2. Digital Entrepreneurship Assistant -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-neon-primary/50 transition-all hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.1)] group flex flex-col h-full">
+                    <!-- 2. Digital Entrep -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-primary/50 transition-all group flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-neon-primary/10 rounded-xl text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors">
-                                <i data-lucide="presentation" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10">Feb 2025 - June 2025</span>
+                            <div class="p-3 bg-neon-primary/10 rounded-xl text-neon-primary"><i data-lucide="presentation" class="w-6 h-6"></i></div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] md:text-xs font-medium text-gray-400 border border-white/10">Feb 25 - Jun 25</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-1">Digital Entrep. Asst.</h3>
-                        <p class="text-neon-primary font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-1">Digital Entrep. Asst.</h3>
+                        <p class="text-neon-primary font-medium text-sm mb-4">Universitas Ciputra</p>
                         <ul class="space-y-3 text-sm text-gray-400 flex-grow">
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
-                                <span>Mentored students in developing digital business ideas and projects.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
-                                <span>Facilitated class discussions and supported student research activities.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span>
-                                <span>Assisted in preparing and delivering engaging course materials.</span>
-                            </li>
+                            <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span><span>Mentored student business projects.</span></li>
+                            <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-primary shrink-0"></span><span>Facilitated research activities.</span></li>
                         </ul>
                     </div>
 
-                    <!-- 3. External Coordinator -->
-                    <div class="bg-space-900 border border-white/5 p-8 rounded-3xl hover:border-white/20 transition-all hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.05)] group flex flex-col h-full">
+                    <!-- 3. External Coord -->
+                    <div class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-white/20 transition-all group flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-white/5 rounded-xl text-white group-hover:bg-white group-hover:text-black transition-colors">
-                                <i data-lucide="users" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10">June 2024 - June 2025</span>
+                            <div class="p-3 bg-white/5 rounded-xl text-white"><i data-lucide="users" class="w-6 h-6"></i></div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] md:text-xs font-medium text-gray-400 border border-white/10">Jun 24 - Jun 25</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-1">External Coordinator</h3>
-                        <p class="text-gray-300 font-medium text-sm mb-4">Student Union Informatics</p>
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-1">External Coordinator</h3>
+                        <p class="text-gray-300 font-medium text-sm mb-4">Student Union</p>
                         <ul class="space-y-3 text-sm text-gray-400 flex-grow">
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
-                                <span>Planned and supervised external events and collaborations.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
-                                <span>Coordinated with external partners, sponsors, and stakeholders.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span>
-                                <span>Ensured smooth execution through logistics and communication.</span>
-                            </li>
+                            <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span><span>Managed external collaborations.</span></li>
+                            <li class="flex gap-2"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white shrink-0"></span><span>Coordinated event logistics.</span></li>
                         </ul>
                     </div>
-
                 </div>
                 
                 <div class="text-center mt-12">
@@ -277,19 +245,18 @@
     <script>
         lucide.createIcons();
 
-        // Canvas Animation Script
+        // Canvas & Focus Animation Scripts (Same as before)
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         
         let width, height;
         let particles = [];
-        const particleCount = 60; // Number of dots
-        const connectionDistance = 150; // Distance to draw lines
-        const mouseDistance = 200; // Mouse interaction radius
+        const particleCount = 60; 
+        const connectionDistance = 150; 
+        const mouseDistance = 200; 
 
         let mouse = { x: null, y: null };
 
-        // Handle resize
         function resize() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
@@ -297,7 +264,6 @@
         window.addEventListener('resize', resize);
         resize();
 
-        // Track mouse
         window.addEventListener('mousemove', (e) => {
             mouse.x = e.x;
             mouse.y = e.y;
@@ -311,21 +277,16 @@
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5; // Velocity
+                this.vx = (Math.random() - 0.5) * 0.5;
                 this.vy = (Math.random() - 0.5) * 0.5;
                 this.size = Math.random() * 2 + 1;
-                this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(6, 182, 212, '; // Purple or Cyan
+                this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(6, 182, 212, '; 
             }
-
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-
-                // Bounce off edges
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
-
-                // Mouse interaction
                 if (mouse.x != null) {
                     let dx = mouse.x - this.x;
                     let dy = mouse.y - this.y;
@@ -334,14 +295,11 @@
                         const forceDirectionX = dx / distance;
                         const forceDirectionY = dy / distance;
                         const force = (mouseDistance - distance) / mouseDistance;
-                        const directionX = forceDirectionX * force * 0.5;
-                        const directionY = forceDirectionY * force * 0.5;
-                        this.vx -= directionX;
-                        this.vy -= directionY;
+                        this.vx -= forceDirectionX * force * 0.5;
+                        this.vy -= forceDirectionY * force * 0.5;
                     }
                 }
             }
-
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -359,20 +317,15 @@
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
-
-                // Draw connections
                 for (let j = i; j < particles.length; j++) {
                     let dx = particles[i].x - particles[j].x;
                     let dy = particles[i].y - particles[j].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
-
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        // Opacity based on distance
                         let opacity = 1 - (distance / connectionDistance);
                         ctx.strokeStyle = 'rgba(255, 255, 255, ' + (opacity * 0.1) + ')';
                         ctx.lineWidth = 1;
@@ -384,48 +337,51 @@
             }
             requestAnimationFrame(animate);
         }
-
         init();
         animate();
 
-        // Focus Rotator Logic
+        // Focus Rotator
         const focuses = [
             { label: "Machine Learning", icon: "brain-circuit", color: "text-neon-secondary", bg: "bg-neon-secondary/20" },
             { label: "Artificial Intelligence", icon: "sparkles", color: "text-neon-primary", bg: "bg-neon-primary/20" },
             { label: "Web Development", icon: "globe", color: "text-pink-500", bg: "bg-pink-500/20" },
             { label: "App Development", icon: "smartphone", color: "text-yellow-500", bg: "bg-yellow-500/20" }
         ];
-
         let focusIndex = 0;
         const textEl = document.getElementById('focus-text');
         const iconContainer = document.getElementById('focus-icon-container');
         const iconBg = document.getElementById('focus-icon-bg');
 
-        setInterval(() => {
-            focusIndex = (focusIndex + 1) % focuses.length;
-            const nextFocus = focuses[focusIndex];
+        if(textEl) {
+            setInterval(() => {
+                focusIndex = (focusIndex + 1) % focuses.length;
+                const nextFocus = focuses[focusIndex];
+                textEl.style.opacity = '0';
+                iconContainer.style.opacity = '0';
+                setTimeout(() => {
+                    textEl.innerText = nextFocus.label;
+                    iconContainer.innerHTML = `<i data-lucide="${nextFocus.icon}" class="w-6 h-6"></i>`;
+                    lucide.createIcons({ root: iconContainer });
+                    iconBg.className = `p-2 rounded-lg transition-colors duration-500 ${nextFocus.bg} ${nextFocus.color}`;
+                    textEl.style.opacity = '1';
+                    iconContainer.style.opacity = '1';
+                }, 500);
+            }, 3000);
+        }
 
-            // Fade out
-            textEl.style.opacity = '0';
-            iconContainer.style.opacity = '0';
-
-            setTimeout(() => {
-                // Change content
-                textEl.innerText = nextFocus.label;
-                
-                // Update Icon HTML
-                iconContainer.innerHTML = `<i data-lucide="${nextFocus.icon}" class="w-6 h-6"></i>`;
-                lucide.createIcons({ root: iconContainer });
-                
-                // Update Colors
-                iconBg.className = `p-2 rounded-lg transition-colors duration-500 ${nextFocus.bg} ${nextFocus.color}`;
-
-                // Fade in
-                textEl.style.opacity = '1';
-                iconContainer.style.opacity = '1';
-            }, 500); // Duration matches CSS transition
-        }, 3000); // 3 seconds per item
-
+        // Mobile Menu Toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Lock scroll
+            } else {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Unlock scroll
+            }
+        });
     </script>
 </body>
 </html>
