@@ -24,7 +24,6 @@
         }
     </script>
     <style>
-        /* Ensure canvas stays in background */
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -33,10 +32,8 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            /* Let clicks pass through to content */
         }
 
-        /* Tooltip styles */
         .tech-icon-wrapper {
             position: relative;
             display: inline-block;
@@ -66,17 +63,43 @@
                 transform: translateX(-50%) translateY(0);
             }
         }
+
+        .avatar-stack:hover .avatar {
+            margin-right: 4px;
+        }
+
+        /* Sidebar & Nav Scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Active State */
+        .nav-link.active {
+            color: white;
+            border-left-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+        }
     </style>
 </head>
 
 <body class="bg-space-950 text-gray-200 font-sans selection:bg-neon-primary selection:text-white overflow-x-hidden">
 
     <canvas id="bg-canvas"></canvas>
-
-    <!-- <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-neon-primary/20 rounded-full blur-[120px] opacity-20 animate-pulse-slow"></div>
-        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-neon-secondary/10 rounded-full blur-[120px] opacity-20"></div>
-    </div> -->
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-space-950/80 backdrop-blur-md border-b border-white/5">
@@ -87,14 +110,10 @@
                     Christian<span class="text-neon-primary group-hover:text-neon-secondary transition-colors">.</span>
                 </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html"
-                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
-                    <a href="about.html"
-                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
-                    <a href="projects.html"
-                        class="text-sm font-medium text-white border-b-2 border-neon-primary">Projects</a>
-                    <a href="achievements.html"
-                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
+                    <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="projects.html" class="text-sm font-medium text-white border-b-2 border-neon-primary">Projects</a>
+                    <a href="achievements.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Achievements</a>
                 </div>
                 <div class="md:hidden flex items-center z-50">
                     <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
@@ -103,810 +122,563 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-space-950/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 z-40">
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-space-950/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 z-40">
             <a href="index.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Home</a>
             <a href="about.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">About</a>
-            <a href="projects.html"
-                class="text-2xl font-bold text-white border-b-2 border-neon-primary pb-1">Projects</a>
-            <a href="achievements.html"
-                class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Achievements</a>
+            <a href="projects.html" class="text-2xl font-bold text-white border-b-2 border-neon-primary pb-1">Projects</a>
+            <a href="achievements.html" class="text-2xl font-bold text-gray-400 hover:text-white transition-colors">Achievements</a>
         </div>
     </nav>
 
+    <!-- Quick Category Bar (Sticky below Main Nav) -->
+    <div class="fixed top-20 w-full z-40 bg-space-950/50 backdrop-blur-md border-b border-white/5 py-3">
+        <div class="max-w-7xl mx-auto px-4 flex gap-4 overflow-x-auto no-scrollbar scroll-smooth">
+            <a href="#ai-web" class="whitespace-nowrap px-4 py-1.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-xs font-bold text-neon-primary hover:bg-neon-primary/20 transition-all">
+                <i data-lucide="brain" class="inline w-3 h-3 mr-1"></i> AI & Web
+            </a>
+            <a href="#game-interactive" class="whitespace-nowrap px-4 py-1.5 rounded-full bg-neon-secondary/10 border border-neon-secondary/20 text-xs font-bold text-neon-secondary hover:bg-neon-secondary/20 transition-all">
+                <i data-lucide="gamepad-2" class="inline w-3 h-3 mr-1"></i> Games
+            </a>
+            <a href="#mobile-apps" class="whitespace-nowrap px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-xs font-bold text-pink-400 hover:bg-pink-500/20 transition-all">
+                <i data-lucide="smartphone" class="inline w-3 h-3 mr-1"></i> Mobile
+            </a>
+        </div>
+    </div>
 
     <!-- Header -->
-    <section class="relative z-10 pt-32 pb-10 text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Innovation <span
-                class="text-neon-secondary">Lab</span></h1>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of AI models, games, and applications engineered
-            to solve real-world problems.</p>
+    <section class="relative z-10 pt-48 pb-10 text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">My <span class="text-neon-secondary">Projects</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of AI models, games, and applications engineered to solve real-world problems.</p>
     </section>
 
-    <!-- Main Content Area -->
-    <div class="relative z-10 pb-20 px-4 max-w-7xl mx-auto space-y-32">
+    <!-- Main Container -->
+    <div class="relative z-10 pb-20 px-4 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+        
+        <!-- Sidebar Quick Navigation (Desktop) -->
+        <aside class="hidden lg:block w-72 shrink-0 h-fit sticky top-48">
+            <div class="bg-space-900/50 backdrop-blur-md border border-white/5 rounded-3xl p-6 space-y-6 shadow-xl max-h-[70vh] overflow-y-auto custom-scrollbar">
+                
+                <div>
+                    <h3 class="text-xs font-bold text-neon-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <i data-lucide="brain" class="w-3 h-3"></i> AI & Web
+                    </h3>
+                    <div class="flex flex-col space-y-1">
+                        <a href="#project-timetable" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">AI Schedule Maker</a>
+                        <a href="#project-mindgrasp" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Mindgrasp</a>
+                        <a href="#project-leads-riceai" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Leads RiceAI</a>
+                        <a href="#project-content-riceai" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Content RiceAI</a>
+                        <a href="#project-visual-riceai" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Visual RiceAI</a>
+                        <a href="#project-link-riceai" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Link RiceAI</a>
+                        <a href="#project-chatwoot" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Chatwoot + Ollama</a>
+                        <a href="#project-defect-detection" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Defect Detection</a>
+                        <a href="#project-career-craft" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Career Craft</a>
+                        <a href="#project-cyberbullying" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Cyberbullying Detector</a>
+                        <a href="#project-presentea" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Presentea</a>
+                    </div>
+                </div>
 
-        <!-- SECTION 1: AI & Web Solutions -->
-        <section id="ai-web" class="space-y-12">
-            <div class="flex items-center gap-4">
-                <div class="h-px bg-gradient-to-r from-transparent to-neon-primary flex-grow"></div>
-                <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
-                    <i data-lucide="brain-circuit" class="text-neon-primary"></i> AI & Web Solutions
-                </h2>
-                <div class="h-px bg-gradient-to-l from-transparent to-neon-primary flex-grow"></div>
+                <div>
+                    <h3 class="text-xs font-bold text-neon-secondary uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <i data-lucide="gamepad-2" class="w-3 h-3"></i> Interactive
+                    </h3>
+                    <div class="flex flex-col space-y-1">
+                        <a href="#project-yucca-ai" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Yucca AI</a>
+                        <a href="#project-nusantara-kafe" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Nusantara Kafe</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold text-pink-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <i data-lucide="smartphone" class="w-3 h-3"></i> Mobile
+                    </h3>
+                    <div class="flex flex-col space-y-1">
+                        <a href="#project-mathspark" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">MathSpark</a>
+                        <a href="#project-heartlink" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Heartlink</a>
+                        <a href="#project-mochi-feel" class="nav-link border-l-2 border-transparent pl-3 text-xs text-gray-400 hover:text-white transition-all py-1.5">Mochi Feel</a>
+                    </div>
+                </div>
             </div>
+        </aside>
 
-            <!-- New Project 4: Chatwoot + Ollama -->
-            <div id="project-chatwoot"
-                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+        <!-- Main Content Area -->
+        <main class="flex-grow space-y-32 overflow-visible">
+
+            <!-- SECTION 1: AI & Web Solutions -->
+            <section id="ai-web" class="space-y-12 scroll-mt-48">
+                <div class="flex items-center gap-4">
+                    <div class="h-px bg-gradient-to-r from-transparent to-neon-primary flex-grow"></div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                        <i data-lucide="brain-circuit" class="text-neon-primary"></i> AI & Web Solutions
+                    </h2>
+                    <div class="h-px bg-gradient-to-l from-transparent to-neon-primary flex-grow"></div>
                 </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/chatwoot_ollama.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Chatwoot+%2B+Ollama'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+
+                <!-- Project: AI Schedule Maker -->
+                <div id="project-timetable" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">AI Schedule Maker</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Automated scheduling tool that generates conflict-free academic timetables using constraint satisfaction algorithms and AI processing. Built with React, Python, Flask, and Gemini API.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="React"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8"></div>
+                            <div class="tech-icon-wrapper" data-title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8"></div>
+                            <div class="tech-icon-wrapper" data-title="Flask"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="w-8 h-8 filter invert"></div>
+                            <div class="tech-icon-wrapper" data-title="Gemini API"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 filter invert"></div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://devpost.com/software/ai-timetable-maker" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="external-link" class="w-4 h-4"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                            <img src="assets/images/portfolio/timetable.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=AI+Schedule+Maker'" class="w-full h-full object-contain">
+                        </div>
                     </div>
                 </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Chatwoot + Ollama CRM</h2>
-                        <p class="text-neon-secondary font-mono text-sm">Automated Customer Engagement</p>
+
+
+                <!-- Project: Mindgrasp -->
+                <div id="project-mindgrasp" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                            <img src="assets/images/portfolio/mindgrasp.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Mindgrasp'" class="w-full h-full object-contain">
+                        </div>
                     </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A multi-channel CRM automation system integrating Chatwoot with local LLMs via Ollama. It
-                        centralizes and automates customer interactions from WhatsApp, Gmail, and Messenger using a
-                        Dockerized architecture for privacy and control.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Docker -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
-                                data-title="Chatwoot">
-                                <img src="https://products.containerize.com/id/live-chat/chatwoot/menu_image.png"
-                                    class="w-8 h-8 md:w-10 md:h-10">
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Mindgrasp</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Mental health RAG platform providing therapy summaries and coping techniques. Features a Django backend, React frontend, and Firebase database.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="Django"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" class="w-8 h-8 filter invert"></div>
+                                <div class="tech-icon-wrapper" data-title="React"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="Firebase"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8"></div>
                             </div>
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Docker">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                              <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/ljofetech/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Leonīds Jofe"><img src="https://ui-avatars.com/api/?name=L+J&background=ec4899&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/yonathanfulbertus/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Yonathan Fulbertus"><img src="https://ui-avatars.com/api/?name=Y+F&background=06b6d4&color=fff" class="rounded-full"></a>
                             </div>
-                            <!-- Python -->
-                            <!-- <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Python">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div> -->
-                            <!-- Ollama (using terminal icon as placeholder if needed, or specific if available) -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
-                                data-title="Ollama">
-                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/ollama.png"
-                                    class="w-8 h-8 md:w-10 md:h-10">
+                            </div>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-4">
+                            <a href="https://mindgrasp-diagram-maker.vercel.app/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="play" class="w-4 h-4"></i> Visit App</a>
+                            <a href="https://devpost.com/software/mindgrasp" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="info" class="w-4 h-4"></i> View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Leads RiceAI -->
+                <div id="project-leads-riceai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/leads_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Leads+RiceAI'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Leads RiceAI</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Lead generation platform for AI consultancy. Captures and qualifies potential clients using Next.js and Gemini API.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="Next.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 filter invert"></div>
+                            <div class="tech-icon-wrapper" data-title="Gemini API"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 filter invert"></div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://leads.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="external-link" class="w-4 h-4"></i> Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Content RiceAI -->
+                <div id="project-content-riceai" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                            <img src="assets/images/portfolio/content_riceai.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Content+RiceAI'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Content RiceAI</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">AI content platform designed to automate high-quality marketing copy using Gemini generative models.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="Next.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 filter invert"></div>
+                            <div class="tech-icon-wrapper" data-title="Gemini API"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 filter invert"></div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://content.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="external-link" class="w-4 h-4"></i> Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Visual RiceAI -->
+                <div id="project-visual-riceai" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/visual.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Visual+RiceAI'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Visual RiceAI</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Advanced visual AI generator built with Next.js. Used for creating and editing business visual content via Gemini.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="Next.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 filter invert"></div>
+                            <div class="tech-icon-wrapper" data-title="Gemini API"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 filter invert"></div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://visual.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="external-link" class="w-4 h-4"></i> Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Link RiceAI -->
+                <div id="project-link-riceai" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                            <img src="assets/images/portfolio/link_rice.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Link+RiceAI'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Link RiceAI</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Centralized bio-link and link management system built on Next.js for professional portfolio sharing.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="Next.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-8 h-8 filter invert"></div>
+                            <div class="tech-icon-wrapper" data-title="Gemini API"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" class="w-8 h-8 filter invert"></div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://link.riceai.net/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="external-link" class="w-4 h-4"></i> Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Chatwoot + Ollama CRM -->
+                <div id="project-chatwoot" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/chatwoot_ollama.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Chatwoot+%2B+Ollama'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Chatwoot + Ollama CRM</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Self-hosted multi-channel CRM automating customer interactions across WhatsApp, Gmail, and Messenger using Ollama local LLMs.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="Chatwoot"><img src="https://products.containerize.com/id/live-chat/chatwoot/menu_image.png" class="w-8 h-8"></div>
+                            <div class="tech-icon-wrapper" data-title="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-8 h-8"></div>
+                            <div class="tech-icon-wrapper" data-title="Ollama"><img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/ollama.png" class="w-8 h-8"></div>
+                        </div>
+                        <div class="pt-2"><span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5 font-medium"><i data-lucide="lock" class="w-4 h-4"></i> Private Repository</span></div>
+                    </div>
+                </div>
+
+                <!-- Project: Defect Detection Tools -->
+                <div id="project-defect-detection" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                            <img src="assets/images/portfolio/defect_detection.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Defect+Detection'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Defect Detection Tools</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Computer Vision system using Python for identifying industrial manufacturing defects. Features custom model swapping and training scripts.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-8 h-8"></div>
+                            <div class="tech-icon-wrapper" data-title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8"></div>
+                            <div class="tech-icon-wrapper" data-title="Deep Learning"><i data-lucide="cpu" class="w-8 h-8 text-gray-300"></i></div>
+                        </div>
+                        <div class="pt-2"><span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5 font-medium"><i data-lucide="lock" class="w-4 h-4"></i> Private Repository</span></div>
+                    </div>
+                </div>
+
+                <!-- Project: Career Craft -->
+                <div id="project-career-craft" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/p4.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Career+Craft'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Career Craft</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">AI career guidance website designed to build personalized learning paths. Integrates advanced Llama models for recommendations via Replicate.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="Laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="MySQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-8 h-8"></div>
+                            </div>
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/karyna-sanjaya/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Karyna Sanjaya"><img src="https://ui-avatars.com/api/?name=K+S&background=ec4899&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/louismario/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Louis Mario"><img src="https://ui-avatars.com/api/?name=L+M&background=f59e0b&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/jasonmiraclegunawan/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Jason Miracle"><img src="https://ui-avatars.com/api/?name=J+M&background=8b5cf6&color=fff" class="rounded-full"></a>
+                                <div class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Filbert Patricio"><img src="https://ui-avatars.com/api/?name=F+P&background=10b981&color=fff" class="rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="pt-2"><a href="https://github.com/jennimi/CareerCraft" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="github" class="w-4 h-4"></i> View Code</a></div>
+                    </div>
+                </div>
+
+                <!-- Project: Cyberbullying Detector -->
+                <div id="project-cyberbullying" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
+                            <img src="assets/images/portfolio/p7.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Cyberbullying'" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Cyberbullying Detector</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">NLP-based model to classify toxic social media behavior. Built with Flask and Scikit-learn, trained on over 50,000 unique tweets.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="Scikit-learn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" class="w-8 h-8"></div>
+                            </div>
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/bryan-samuel/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Bryan Samuel"><img src="https://ui-avatars.com/api/?name=B+S&background=ec4899&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/nathan-darrell/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Nathan Darrell"><img src="https://ui-avatars.com/api/?name=N+D&background=06b6d4&color=fff" class="rounded-full"></a>
+                            </div>
+                        </div>
+                        <div class="pt-2"><a href="https://github.com/AsukaaNao/Cyberbullying_Detection" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="github" class="w-4 h-4"></i> View Code</a></div>
+                    </div>
+                </div>
+
+                <!-- Project: Presentea -->
+                <div id="project-presentea" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/p6.jpg" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Presentea'" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Presentea</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">AI scoring system evaluating speech clarity and body language using Google's Teachable Machine and real-time processing.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="HTML5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="Teachable Machine"><img src="https://cdn-1.webcatalog.io/catalog/teachable-machine/teachable-machine-icon-filled-256.webp" class="w-8 h-8"></div>
+                            </div>
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/karyna-sanjaya/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Karyna Sanjaya"><img src="https://ui-avatars.com/api/?name=K+S&background=ec4899&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/nathan-darrell/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Nathan Darrell"><img src="https://ui-avatars.com/api/?name=N+D&background=06b6d4&color=fff" class="rounded-full"></a>
+                                <div class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Gavin Lienardi"><img src="https://ui-avatars.com/api/?name=G+L&background=8b5cf6&color=fff" class="rounded-full"></div>
+                                <a href="https://www.linkedin.com/in/jasonmiraclegunawan/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Jason Miracle"><img src="https://ui-avatars.com/api/?name=J+M&background=f59e0b&color=fff" class="rounded-full"></a>
+                                <div class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Gabriela Putri"><img src="https://ui-avatars.com/api/?name=G+P&background=10b981&color=fff" class="rounded-full"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <span
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
-                            <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
-                        </span>
-                    </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- New Project 5: Leads RiceAI -->
-            <div id="project-leads-riceai"
-                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+            <!-- SECTION 2: Game & Interactive -->
+            <section id="game-interactive" class="space-y-12 scroll-mt-48">
+                <div class="flex items-center gap-4">
+                    <div class="h-px bg-gradient-to-r from-transparent to-neon-secondary flex-grow"></div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                        <i data-lucide="gamepad-2" class="text-neon-secondary"></i> Game & Interactive
+                    </h2>
+                    <div class="h-px bg-gradient-to-l from-transparent to-neon-secondary flex-grow"></div>
                 </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/leads_riceai.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Leads+RiceAI'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Leads RiceAI</h2>
-                        <p class="text-neon-primary font-mono text-sm">Lead Generator</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A dedicated lead generation platform for AI consultancy services, built to attract, capture, and
-                        qualify potential clients through streamlined intake forms and automated filtering..
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
-                            </div>
-                            <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
-                            </div>
+
+                <!-- Project: Yucca AI -->
+                <div id="project-yucca-ai" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/yuuka1.jpg" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Yucca+AI'" class="w-full h-full object-contain">
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <a href="https://leads.riceai.net/" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Project 6: Content RiceAI -->
-            <div id="project-content-riceai"
-                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/content_riceai.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Content+RiceAI'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Content RiceAI</h2>
-                        <p class="text-neon-secondary font-mono text-sm">AI Content Generation</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        An AI-driven content platform aimed at automating and enhancing digital marketing materials and
-                        copy.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Yucca AI</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Interactive university mascot 3D chatbot. Integrates OpenAI Langchain with a Unity-based environment for real-time engagement.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="Unity"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="LangChain"><img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain.png" class="w-8 h-8"></div>
                             </div>
-                            <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/bryan-samuel/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Bryan Samuel"><img src="https://ui-avatars.com/api/?name=B+S&background=ec4899&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/nathan-darrell/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Nathan Darrell"><img src="https://ui-avatars.com/api/?name=N+D&background=06b6d4&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/rafiabhista/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Rafi Abhista"><img src="https://ui-avatars.com/api/?name=R+A&background=8b5cf6&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/derend-marvel/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Derend Marvel"><img src="https://ui-avatars.com/api/?name=D+M&background=f59e0b&color=fff" class="rounded-full"></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://content.riceai.net/" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
-                        </a>
+                        <div class="pt-2"><a href="https://github.com/HDWKG/Yuuka3" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="github" class="w-4 h-4"></i> View Code</a></div>
                     </div>
                 </div>
-            </div>
 
-            <!-- New Project 7: Visual RiceAI -->
-            <div id="project-visual-riceai"
-                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/visual.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Visual+RiceAI'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Visual RiceAI</h2>
-                        <p class="text-neon-primary font-mono text-sm">AI Image Processing</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A visual AI tool leveraging generative models for image creation and enhancement for business
-                        applications.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
-                            </div>
-                            <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
-                            </div>
+                <!-- Project: Nusantara Kafe -->
+                <div id="project-nusantara-kafe" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/p6.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Nusantara+Kafe'" class="w-full h-full object-contain">
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <a href="https://visual.riceai.net/" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Project 8: Link RiceAI -->
-            <div id="project-link-riceai"
-                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/link_rice.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Link+RiceAI'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Link RiceAI</h2>
-                        <p class="text-neon-secondary font-mono text-sm">Smart Link Management</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A centralized link management and bio-link solution for professional branding and portfolio
-                        sharing.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Next.js -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Next.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Nusantara Kafe</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">1st Place Winner - TSA GameFest 2024. A Unity tycoon simulation celebrating Indonesian cuisine and management strategy.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="Unity"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="C#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="w-8 h-8"></div>
                             </div>
-                            <!-- React -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Gemini -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Gemini API">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/bryan-samuel/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Bryan Samuel"><img src="https://ui-avatars.com/api/?name=B+S&background=ec4899&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/nathan-darrell/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Nathan Darrell"><img src="https://ui-avatars.com/api/?name=N+D&background=06b6d4&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/rafiabhista/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Rafi Abhista"><img src="https://ui-avatars.com/api/?name=R+A&background=8b5cf6&color=fff" class="rounded-full"></a>
+                                <a href="https://www.linkedin.com/in/derend-marvel/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Derend Marvel"><img src="https://ui-avatars.com/api/?name=D+M&background=f59e0b&color=fff" class="rounded-full"></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://link.riceai.net/" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Visit Site
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Project 9: Defect Detection -->
-            <div id="project-defect-detection"
-                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/defect_detection.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Defect+Detection'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Defect Detection Tools/h2>
-                            <p class="text-neon-primary font-mono text-sm">Industrial Computer Vision</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        An AI training and prediction system designed to identify defects in manufacturing. Allows for
-                        training on custom datasets and swapping models to adapt to different visual inspection tasks.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Docker -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Docker">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Python -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Python">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- TensorFlow/PyTorch (Placeholder AI) -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
-                                data-title="TensorFlow / PyTorch">
-                                <i data-lucide="cpu" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
-                            </div>
+                        <div class="pt-2 flex gap-4">
+                            <a href="https://hdwk.itch.io/nusantara-kafe" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="play" class="w-4 h-4"></i> Play</a>
+                            <a href="https://github.com/HDWKG/TSA-GameFest" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="github" class="w-4 h-4"></i> Repo</a>
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <span
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
-                            <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
-                        </span>
-                    </div>
-                    <!-- <a href="https://github.com/HDWKG/TSA-GameFest" target="_blank"
-                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
-                        <i data-lucide="github" class="w-4 h-4"></i> View Code
-                    </a> -->
                 </div>
-            </div>
+            </section>
 
-            <!-- Project 1: Career Craft -->
-            <div id="project-career-craft"
-                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
+            <!-- SECTION 3: Mobile Applications -->
+            <section id="mobile-apps" class="space-y-12 scroll-mt-48">
+                <div class="flex items-center gap-4">
+                    <div class="h-px bg-gradient-to-r from-transparent to-pink-500 flex-grow"></div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                        <i data-lucide="smartphone" class="text-pink-500"></i> Mobile Applications
+                    </h2>
+                    <div class="h-px bg-gradient-to-l from-transparent to-pink-500 flex-grow"></div>
                 </div>
 
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/p4.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Career+Craft'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Career Craft</h2>
-                        <p class="text-neon-primary font-mono text-sm">AI-Powered Career Guidance</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        AI-powered career guidance website designed to help users find the perfect job and build a
-                        personalized learning path. Integrating advanced AI models (Llama via Replicate) to offer
-                        tailored recommendations and a 24/7 AI chatbot.
-                    </p>
-
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Laravel -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Laravel">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- MySQL -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="MySQL">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Meta/Llama (Using Meta Logo) -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Llama AI (Meta)">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- JS -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
+                <!-- Project: MathSpark -->
+                <div id="project-mathspark" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
+                            <img src="assets/images/portfolio/mathspark.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=MathSpark'" class="w-full h-full object-contain">
                         </div>
                     </div>
-
-                    <div class="pt-2">
-                        <a href="https://github.com/jennimi/CareerCraft" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-primary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="github" class="w-4 h-4"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: Cyberbullying Detector -->
-            <div id="project-cyberbullying"
-                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/p7.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Cyberbullying'"
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Cyberbullying Detector</h2>
-                        <p class="text-neon-secondary font-mono text-sm">NLP Classification Model</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        Machine Learning project using Scikit-learn and NLTK to detect cyberbullying in tweets. Trained
-                        on a 50k dataset, it classifies different types of toxicity (gender, religion, ethnicity) and is
-                        deployed via Flask.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Python -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Python">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Flask -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Flask">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
-                            </div>
-                            <!-- Scikit-learn -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Scikit-learn">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Pandas -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Pandas">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">MathSpark</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"><i data-lucide="user" class="inline w-3 h-3"></i> Solo Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Interactive AI learning platform that breaks down complex math problems into visual steps. Built with Flutter and OpenAI with a Firebase backend.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="tech-icon-wrapper" data-title="Flutter"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-8 h-8"></div>
+                            <div class="tech-icon-wrapper" data-title="OpenAI API"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" class="w-8 h-8 filter invert"></div>
+                            <div class="tech-icon-wrapper" data-title="Firebase"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8"></div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="https://a9giau2xye3rjf0o2ta4.share.dreamflow.app/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="play" class="w-4 h-4"></i> Try Demo</a>
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <a href="https://github.com/AsukaaNao/Cyberbullying_Detection" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="github" class="w-4 h-4"></i> View Code
-                        </a>
-                    </div>
                 </div>
-            </div>
 
-            <!-- Project 3: Presentea -->
-            <div id="project-presentea"
-                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-primary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-neon-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-primary/20 transition-all">
-                        <img src="assets/images/portfolio/p6.jpg"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Presentea'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Presentea</h2>
-                        <p class="text-neon-primary font-mono text-sm">AI Presentation Scoring</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        An innovative web-based AI system designed to evaluate and score a person's presentation skills
-                        based on voice tone, clarity, and body language. Uses Teachable Machine for gesture analysis and
-                        provides real-time feedback.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- HTML -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- JS -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Teachable Machine -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Teachable Machine">
-                                <img src="https://cdn-1.webcatalog.io/catalog/teachable-machine/teachable-machine-icon-filled-256.webp?v=1719392793780"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
+                <!-- Project: Heartlink -->
+                <div id="project-heartlink" class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
+                            <img src="assets/images/portfolio/p3.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Heartlink'" class="w-full h-full object-contain">
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <span
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 text-gray-400 text-sm cursor-not-allowed border border-white/5">
-                            <i data-lucide="lock" class="w-4 h-4"></i> Private Repository
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- SECTION 2: Game & Interactive -->
-        <section id="game-interactive" class="space-y-12">
-            <div class="flex items-center gap-4">
-                <div class="h-px bg-gradient-to-r from-transparent to-neon-secondary flex-grow"></div>
-                <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
-                    <i data-lucide="gamepad-2" class="text-neon-secondary"></i> Game & Interactive
-                </h2>
-                <div class="h-px bg-gradient-to-l from-transparent to-neon-secondary flex-grow"></div>
-            </div>
-
-            <!-- Project 4: Nusantara Kafe -->
-            <div id="project-nusantara-kafe"
-                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/p6.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Nusantara+Kafe'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Nusantara Kafe</h2>
-                        <p class="text-neon-secondary font-mono text-sm">TSA GameFest 2024 Winner</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A cafe tycoon simulation game where players manage a traditional Indonesian cafe. Serve local
-                        delicacies like satay and es cendol, manage staff, and upgrade your shop. Won 1st place for
-                        cultural representation and gameplay.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Unity -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Unity">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Heartlink</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Native iOS app connecting couples with real-time features. National Top 5 Finalist. Built with Swift and Firebase services.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="Swift"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="Firebase"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8"></div>
                             </div>
-                            <!-- C# -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="C#">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Gamepad Icon for Game Design -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors text-white"
-                                data-title="Game Design">
-                                <i data-lucide="gamepad" class="w-8 h-8 md:w-10 md:h-10 text-gray-300"></i>
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/karyna-sanjaya/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Karyna Sanjaya"><img src="https://ui-avatars.com/api/?name=K+S&background=ec4899&color=fff" class="rounded-full"></a>
+                                <div class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Shelfinna"><img src="https://ui-avatars.com/api/?name=S+F&background=06b6d4&color=fff" class="rounded-full"></div>
+                                <div class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Filbert Patricio"><img src="https://ui-avatars.com/api/?name=F+P&background=8b5cf6&color=fff" class="rounded-full"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="pt-2 flex flex-wrap gap-4">
-                        <a href="https://hdwk.itch.io/nusantara-kafe" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> Play Game
-                        </a>
-                        <a href="https://github.com/HDWKG/TSA-GameFest" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="github" class="w-4 h-4"></i> View Code
-                        </a>
+                        <div class="pt-2"><a href="https://github.com/AsukaaNao/Heartlink" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="github" class="w-4 h-4"></i> View Code</a></div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Project 5: Yucca AI -->
-            <div id="project-yucca-ai"
-                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon-secondary/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-l from-neon-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-neon-secondary/20 transition-all">
-                        <img src="assets/images/portfolio/p2.jpeg"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Yucca+AI'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Yucca AI</h2>
-                        <p class="text-neon-secondary font-mono text-sm">Interactive 3D Chatbot</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        Interactive chatbot answering questions about Yucca, the university mascot. Integrates OpenAI's
-                        Langchain with a Unity-based 3D environment for real-time voice conversations using Whisper and
-                        ElevenLabs.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Unity -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Unity">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- LangChain -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="LangChain">
-                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain.png"
-                                    class="w-8 h-8 md:w-10 md:h-10 object-contain">
-                            </div>
-                            <!-- OpenAI -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="OpenAI / Whisper">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10 filter invert">
-                            </div>
+                <!-- Project: Mochi Feel -->
+                <div id="project-mochi-feel" class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-gradient-to-l from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-5/12 relative z-10">
+                        <div class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
+                            <img src="assets/images/portfolio/p5.png" onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Mochi+Feel'" class="w-full h-full object-contain">
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <a href="https://github.com/HDWKG/Yuuka3" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-neon-secondary hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="github" class="w-4 h-4"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: Mobile Applications -->
-        <section id="mobile-apps" class="space-y-12">
-            <div class="flex items-center gap-4">
-                <div class="h-px bg-gradient-to-r from-transparent to-pink-500 flex-grow"></div>
-                <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
-                    <i data-lucide="smartphone" class="text-pink-500"></i> Mobile Applications
-                </h2>
-                <div class="h-px bg-gradient-to-l from-transparent to-pink-500 flex-grow"></div>
-            </div>
-
-            <!-- Project 6: Heartlink -->
-            <div id="project-heartlink"
-                class="group relative flex flex-col md:flex-row gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
-                        <img src="assets/images/portfolio/p3.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Heartlink'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Heartlink</h2>
-                        <p class="text-pink-500 font-mono text-sm">Couple-Focused iOS App</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A couple-focused iOS mobile application for real-time location tracking, chat, and media
-                        sharing. It keeps soulmates connected using Firebase for backend services and Swift for the
-                        native UI. Top 5 Finalist at Mobile App Challenge.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Swift -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Swift">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
+                    <div class="w-full md:w-7/12 space-y-6 relative z-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">Mochi Feel</h2>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-primary/10 border border-neon-primary/20 text-neon-primary text-xs font-medium"><i data-lucide="users" class="inline w-3 h-3"></i> Team Project</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Emotional journaling and mental health tracker built with Kotlin and Jetpack Compose. Utilizes Firebase for secure cloud data storage.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex flex-wrap gap-4">
+                                <div class="tech-icon-wrapper" data-title="Kotlin"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="Jetpack Compose"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg" class="w-8 h-8"></div>
+                                <div class="tech-icon-wrapper" data-title="Firebase"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="w-8 h-8"></div>
                             </div>
-                            <!-- Firebase -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Firebase">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
+                            <div class="flex items-center -space-x-3 avatar-stack">
+                                <a href="https://www.linkedin.com/in/karyna-sanjaya/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Karyna Sanjaya"><img src="https://ui-avatars.com/api/?name=K+S&background=ec4899&color=fff" class="rounded-full"></a>
+                                <div class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Gavin Lienardi"><img src="https://ui-avatars.com/api/?name=G+L&background=06b6d4&color=fff" class="rounded-full"></div>
+                                <a href="https://www.linkedin.com/in/jasonmiraclegunawan/" target="_blank" class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Jason Miracle"><img src="https://ui-avatars.com/api/?name=J+M&background=8b5cf6&color=fff" class="rounded-full"></a>
+                                <div class="avatar w-10 h-10 rounded-full border-2 border-space-900 bg-space-800" title="Samuel Miracle"><img src="https://ui-avatars.com/api/?name=S+M&background=f59e0b&color=fff" class="rounded-full"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://github.com/AsukaaNao/Heartlink" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="github" class="w-4 h-4"></i> View Code
-                        </a>
+                        <div class="pt-2"><a href="https://github.com/AttraqtiA/Mochi_Feel" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 transition-all font-medium"><i data-lucide="github" class="w-4 h-4"></i> View Code</a></div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Project 7: Mochi Feel -->
-            <div id="project-mochi-feel"
-                class="group relative flex flex-col md:flex-row-reverse gap-8 items-center bg-space-900/50 p-6 md:p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all hover:bg-space-900/80 backdrop-blur-sm">
-                <div
-                    class="absolute inset-0 bg-gradient-to-l from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none">
-                </div>
-                <div class="w-full md:w-5/12 relative z-10">
-                    <div
-                        class="aspect-[4/3] bg-black/50 rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:shadow-pink-500/20 transition-all">
-                        <img src="assets/images/portfolio/p5.png"
-                            onerror="this.src='https://placehold.co/600x450/121212/FFF?text=Mochi+Feel'"
-                            class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
-                    </div>
-                </div>
-                <div class="w-full md:w-7/12 space-y-6 relative z-10">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Mochi Feel</h2>
-                        <p class="text-pink-500 font-mono text-sm">Mental Health Journaling</p>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                        A mental health journaling app tracking emotions and promoting self-awareness. Features daily
-                        mood tracking, calendar views, and secure Firebase storage, wrapped in a calming UI built with
-                        Jetpack Compose.
-                    </p>
-                    <div class="space-y-3">
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <!-- Kotlin -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Kotlin">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Jetpack Compose -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Jetpack Compose">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                            <!-- Firebase -->
-                            <div class="tech-icon-wrapper p-2 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                                data-title="Firebase">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                                    class="w-8 h-8 md:w-10 md:h-10">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://github.com/AttraqtiA/Mochi_Feel" target="_blank"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 hover:bg-pink-500 hover:text-white text-gray-300 font-medium transition-all">
-                            <i data-lucide="github" class="w-4 h-4"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+            </section>
+        </main>
     </div>
 
     <footer class="py-8 border-t border-white/5 bg-space-950 text-center relative z-10">
-        <p class="text-gray-500 text-sm">&copy; 2025 Christian Tanjung.</p>
+        <p class="text-gray-500 text-sm">&copy; 2026 Christian Tanjung.</p>
     </footer>
 
     <script>
@@ -917,102 +689,66 @@
             document.body.style.overflow = menu.classList.contains('hidden') ? 'auto' : 'hidden';
         });
 
-        // Canvas Animation Script
+        // Canvas Animation
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
-
-        let width, height;
-        let particles = [];
-        const particleCount = 60; // Number of dots
-        const connectionDistance = 150; // Distance to draw lines
-        const mouseDistance = 200; // Mouse interaction radius
-
+        let width, height, particles = [];
+        const particleCount = 60;
+        const connectionDistance = 150;
+        const mouseDistance = 200;
         let mouse = { x: null, y: null };
 
-        // Handle resize
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
         window.addEventListener('resize', resize);
         resize();
 
-        // Track mouse
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        });
-        window.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
+        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
 
         class Particle {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5; // Velocity
+                this.vx = (Math.random() - 0.5) * 0.5;
                 this.vy = (Math.random() - 0.5) * 0.5;
                 this.size = Math.random() * 2 + 1;
-                this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(6, 182, 212, '; // Purple or Cyan
+                this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(6, 182, 212, ';
             }
-
             update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                // Bounce off edges
+                this.x += this.vx; this.y += this.vy;
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
-
-                // Mouse interaction
                 if (mouse.x != null) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
+                    let dx = mouse.x - this.x; let dy = mouse.y - this.y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < mouseDistance) {
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
                         const force = (mouseDistance - distance) / mouseDistance;
-                        const directionX = forceDirectionX * force * 0.5;
-                        const directionY = forceDirectionY * force * 0.5;
-                        this.vx -= directionX;
-                        this.vy -= directionY;
+                        this.vx -= (dx / distance) * force * 0.5;
+                        this.vy -= (dy / distance) * force * 0.5;
                     }
                 }
             }
-
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color + '0.5)';
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + '0.5)'; ctx.fill();
             }
         }
 
         function init() {
             particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
         }
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
-
             for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-
-                // Draw connections
+                particles[i].update(); particles[i].draw();
                 for (let j = i; j < particles.length; j++) {
                     let dx = particles[i].x - particles[j].x;
                     let dy = particles[i].y - particles[j].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
-
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        // Opacity based on distance
                         let opacity = 1 - (distance / connectionDistance);
                         ctx.strokeStyle = 'rgba(255, 255, 255, ' + (opacity * 0.1) + ')';
                         ctx.lineWidth = 1;
@@ -1025,9 +761,29 @@
             requestAnimationFrame(animate);
         }
 
+        // Active Link Highlighting on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id], div[id^="project-"]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 250) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
         init();
         animate();
-
     </script>
 </body>
 
