@@ -19,7 +19,16 @@
                         space: { 950: '#050505', 900: '#0a0a0a', 800: '#121212' },
                         neon: { primary: '#8b5cf6', secondary: '#06b6d4', glow: 'rgba(139, 92, 246, 0.5)' }
                     },
-                    animation: { 'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
+                    animation: { 
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards' 
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
                 }
             }
         }
@@ -135,22 +144,23 @@
                             class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-blue-500/50 transition-all group">
                             <div
                                 class="p-2.5 rounded-lg bg-white/5 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                <img src="https://cdn.simpleicons.org/linkedin/0A66C2" class="w-5 h-5" alt="LinkedIn">
                             </div>
                             <div>
                                 <p class="text-[10px] text-gray-500 uppercase tracking-wider">LinkedIn</p>
-                                <p class="text-sm font-semibold text-white">Connect with me</p>
+                                <p class="text-sm font-semibold text-white">Linkedin Profile</p>
                             </div>
                         </a>
                         <a href="https://instagram.com/christian._.tanjung" target="_blank"
                             class="flex items-center gap-4 px-5 py-4 rounded-xl bg-space-900 border border-white/5 hover:border-pink-500/50 transition-all group">
                             <div
                                 class="p-2.5 rounded-lg bg-white/5 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors">
-                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                                <img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-5 h-5"
+                                    alt="Instagram">
                             </div>
                             <div>
                                 <p class="text-[10px] text-gray-500 uppercase tracking-wider">Instagram</p>
-                                <p class="text-sm font-semibold text-white">Follow my journey</p>
+                                <p class="text-sm font-semibold text-white">@christian._.tanjung</p>
                             </div>
                         </a>
                     </div>
@@ -174,30 +184,118 @@
                 </div>
             </div>
 
-            <!-- Full Experience Section (1 Column) -->
+            <!-- Full Experience Section -->
             <section class="mb-24 md:mb-32">
-                <div class="text-center mb-12 md:mb-16">
+                <div class="text-center mb-10 md:mb-12">
                     <h2 class="text-3xl font-bold text-white mb-4">Full <span
                             class="text-neon-secondary">Experience</span></h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-neon-secondary to-neon-primary mx-auto rounded-full">
+                    <div class="w-24 h-1 bg-gradient-to-r from-neon-secondary to-neon-primary mx-auto rounded-full mb-8">
+                    </div>
+                    
+                    <!-- Experience Filters -->
+                    <div class="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-2xl mx-auto px-4">
+                        <button
+                            class="filter-btn active px-5 py-2 rounded-full border border-neon-primary bg-neon-primary/20 text-white text-sm font-medium transition-all"
+                            data-filter="all">
+                            All
+                        </button>
+                        <button
+                            class="filter-btn px-5 py-2 rounded-full border border-white/10 hover:border-neon-secondary bg-transparent text-gray-400 hover:text-white text-sm font-medium transition-all"
+                            data-filter="professional">
+                            Professional Experience
+                        </button>
+                        <button
+                            class="filter-btn px-5 py-2 rounded-full border border-white/10 hover:border-purple-500 bg-transparent text-gray-400 hover:text-white text-sm font-medium transition-all"
+                            data-filter="teaching">
+                            Teaching Experience
+                        </button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 gap-6 relative max-w-4xl mx-auto px-4">
+                <div class="grid grid-cols-1 gap-6 relative max-w-4xl mx-auto px-4" id="experience-container">
+                    <!-- Math & Coding Tutor (Teaching) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-emerald-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="teaching">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://scontent.cdninstagram.com/v/t51.82787-19/849772654_17973979362154542_1580786235795122036_n.jpg?_nc_cat=110&ig_cache_key=GG6ApjIu2BQvPds-AHQnZcK0FPAVbmNDAQAB0j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=DEOcxR16KHsQ7kNvwGJdNtS&_nc_oc=Adq27kE4rqjSGtca3xNMmj8kLWGRx07Jgkr1WJ74km28nOceJ-rwQSUBmT68L8C91H4&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=7mSONCqzxYcawJdkKYxFhQ&_nc_ss=7aaaf&oh=00_AQQCF63SD0XiBBkFMeMfYwBlhcaHRJnAQp6D6Hc5uGC6sg&oe=6AF1FC5A" 
+                                 alt="BetterMinds Learning Center" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-white">Math & Coding Tutor</h3>
+                                <span
+                                    class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Jun
+                                    2026 - Present</span>
+                            </div>
+                            <p class="text-emerald-500 font-medium text-sm mb-4">BetterMinds Learning Center</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                                    <span>Provided one-on-one and group tutoring in mathematics and programming.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                                    <span>Guided students in understanding mathematical concepts, computational
+                                        thinking, and problem-solving.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                                    <span>Designed practical coding exercises to strengthen programming fundamentals and
+                                        logical reasoning.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                    <!-- 4. Visual Prog -->
-                    <div
-                        class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-purple-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                        <div
-                            class="p-4 bg-purple-500/10 rounded-2xl text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors shrink-0 w-fit">
-                            <i data-lucide="code" class="w-8 h-8"></i>
+                    <!-- Data Annotator (Professional) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-blue-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="professional">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D560BAQGfM9cJ1nU4wA/company-logo_200_200/B56Zcpcy4ZGQAI-/0/1748747104258/t_maxx_logo?e=2147483647&v=beta&t=mEYErz9m3v-7sSJOM9LqAFvf18Nh898xI2EaO265r1s" 
+                                 alt="T-Maxx International" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-white">Data Annotator (Freelance)</h3>
+                                <span
+                                    class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">May
+                                    2026 - Present </span>
+                            </div>
+                            <p class="text-blue-500 font-medium text-sm mb-4">T-Maxx International</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                    <span>Annotated and labeled datasets to support AI/ML model training.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                    <span>Applied data annotation guidelines to ensure labeling consistency and
+                                        accuracy.</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                    <span>Reviewed and validated annotated data to maintain dataset quality.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mobile App Development Asst. (Teaching) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-purple-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="teaching">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://static.uc.ac.id/psy/2022/03/LOGO-UC-FIX-SEP-2021-01.png" 
+                                 alt="Universitas Ciputra Surabaya" 
+                                 class="w-full h-full object-contain">
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
                                 <h3 class="text-lg md:text-xl font-bold text-white">Mobile App Development Asst.</h3>
                                 <span
                                     class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Feb
-                                    2026 - Present</span>
+                                    26 - Jun 26</span>
                             </div>
                             <p class="text-purple-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
                             <ul class="space-y-2 text-sm text-gray-400">
@@ -211,12 +309,13 @@
                         </div>
                     </div>
 
-                    <!-- 1. AI Engineer Intern -->
-                    <div
-                        class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-secondary/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                        <div
-                            class="p-4 bg-neon-secondary/10 rounded-2xl text-neon-secondary group-hover:bg-neon-secondary group-hover:text-black transition-colors shrink-0 w-fit">
-                            <i data-lucide="bot" class="w-8 h-8"></i>
+                    <!-- AI Engineer Intern (Professional) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-secondary/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="professional">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=366,fit=crop/AGB2yyJJKXfD527r/rice-ai-consulting-logo-1-dJoPG62kzrFK7pvM.png" 
+                                 alt="RICE AI Consultant" 
+                                 class="w-full h-full object-contain">
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
@@ -240,12 +339,13 @@
                         </div>
                     </div>
 
-                    <!-- 2. Digital Entrep -->
-                    <div
-                        class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-primary/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                        <div
-                            class="p-4 bg-neon-primary/10 rounded-2xl text-neon-primary group-hover:bg-neon-primary group-hover:text-white transition-colors shrink-0 w-fit">
-                            <i data-lucide="presentation" class="w-8 h-8"></i>
+                    <!-- Digital Entrep. & Innovation Asst. (Teaching) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-neon-primary/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="teaching">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://static.uc.ac.id/psy/2022/03/LOGO-UC-FIX-SEP-2021-01.png" 
+                                 alt="Universitas Ciputra Surabaya" 
+                                 class="w-full h-full object-contain">
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
@@ -267,9 +367,9 @@
                         </div>
                     </div>
 
-                    <!-- 3. External Coord -->
-                    <div
-                        class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-white/20 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                    <!-- External Coordinator (Professional/Org) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-white/20 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="professional">
                         <div
                             class="p-4 bg-white/5 rounded-2xl text-white group-hover:bg-white group-hover:text-black transition-colors shrink-0 w-fit">
                             <i data-lucide="users" class="w-8 h-8"></i>
@@ -293,12 +393,13 @@
                         </div>
                     </div>
 
-                    <!-- 4. Visual Prog -->
-                    <div
-                        class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-purple-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                        <div
-                            class="p-4 bg-purple-500/10 rounded-2xl text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors shrink-0 w-fit">
-                            <i data-lucide="code" class="w-8 h-8"></i>
+                    <!-- Visual Programming Asst. (Teaching) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-indigo-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="teaching">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://static.uc.ac.id/psy/2022/03/LOGO-UC-FIX-SEP-2021-01.png" 
+                                 alt="Universitas Ciputra Surabaya" 
+                                 class="w-full h-full object-contain">
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
@@ -307,24 +408,52 @@
                                     class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Sep
                                     2024 - Jan 2025</span>
                             </div>
-                            <p class="text-purple-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                            <p class="text-indigo-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
                             <ul class="space-y-2 text-sm text-gray-400">
                                 <li class="flex gap-2"><span
-                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span><span>Guided
+                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0"></span><span>Guided
                                         students in Jetpack Compose.</span></li>
                                 <li class="flex gap-2"><span
-                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span><span>Designed
+                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0"></span><span>Designed
                                         practice problems for skill building.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 5. Web Dev -->
-                    <div
-                        class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-pink-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                    <!-- Math Tutor (Teaching) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-rose-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="teaching">
                         <div
-                            class="p-4 bg-pink-500/10 rounded-2xl text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors shrink-0 w-fit">
+                            class="p-4 bg-rose-500/10 rounded-2xl text-rose-500 group-hover:bg-rose-500 group-hover:text-white transition-colors shrink-0 w-fit">
                             <i data-lucide="globe" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-white">Math Tutor (Part-time)</h3>
+                                <span
+                                    class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Oct
+                                    2024 - Jun 2025</span>
+                            </div>
+                            <p class="text-rose-500 font-medium text-sm mb-4">Bimbel Provision Surabaya</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex gap-2"><span
+                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0"></span><span>Provided
+                                        one-on-one and group tutoring sessions</span></li>
+                                <li class="flex gap-2"><span
+                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0"></span><span>helping
+                                        students understand mathematical concepts and solve problems effectively.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Web Development Asst. (Teaching) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-orange-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="teaching">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://static.uc.ac.id/psy/2022/03/LOGO-UC-FIX-SEP-2021-01.png" 
+                                 alt="Universitas Ciputra Surabaya" 
+                                 class="w-full h-full object-contain">
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
@@ -333,24 +462,25 @@
                                     class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-gray-400 border border-white/10 w-fit mt-1 md:mt-0">Sep
                                     2024 - Jan 2025</span>
                             </div>
-                            <p class="text-pink-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
+                            <p class="text-orange-500 font-medium text-sm mb-4">Universitas Ciputra Surabaya</p>
                             <ul class="space-y-2 text-sm text-gray-400">
                                 <li class="flex gap-2"><span
-                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span><span>Taught
+                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0"></span><span>Taught
                                         HTML, CSS, JS, Laravel, React.</span></li>
                                 <li class="flex gap-2"><span
-                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span><span>Assisted
+                                        class="mt-1.5 w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0"></span><span>Assisted
                                         in building functional web apps.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 6. Database -->
-                    <div
-                        class="bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-yellow-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                        <div
-                            class="p-4 bg-yellow-500/10 rounded-2xl text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-colors shrink-0 w-fit">
-                            <i data-lucide="database" class="w-8 h-8"></i>
+                    <!-- Database Assistant (Teaching) -->
+                    <div class="exp-card animate-fade-in bg-space-900 border border-white/5 p-6 md:p-8 rounded-3xl hover:border-yellow-500/50 transition-all group flex flex-col md:flex-row md:items-start gap-4 md:gap-6"
+                        data-category="teaching">
+                        <div class="overflow-hidden rounded-2xl shrink-0 w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://static.uc.ac.id/psy/2022/03/LOGO-UC-FIX-SEP-2021-01.png" 
+                                 alt="Universitas Ciputra Surabaya" 
+                                 class="w-full h-full object-contain">
                         </div>
                         <div class="flex-grow">
                             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
@@ -372,13 +502,6 @@
                     </div>
 
                 </div>
-
-                <!-- <div class="flex justify-center mt-16">
-                    <a href="assets/download/Resume.pdf" download class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-space-900 border border-neon-primary/30 hover:border-neon-primary hover:bg-neon-primary/10 text-white font-medium transition-all group">
-                        View Full Experience
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div> -->
             </section>
 
             <!-- Skills (Preserved) -->
@@ -412,7 +535,7 @@
                                         class="w-1.5 h-1.5 rounded-full bg-orange-600"></span> Swift</li>
                                 <li class="flex items-center gap-2"><span
                                         class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Kotlin</li>
-                                 <li class="flex items-center gap-2"><span
+                                <li class="flex items-center gap-2"><span
                                         class="w-1.5 h-1.5 rounded-full bg-purple-200"></span> Flutter</li>
                             </ul>
                         </div>
@@ -518,6 +641,7 @@
         function animate() { ctx.clearRect(0, 0, width, height); for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); for (let j = i; j < particles.length; j++) { let dx = particles[i].x - particles[j].x; let dy = particles[i].y - particles[j].y; let distance = Math.sqrt(dx * dx + dy * dy); if (distance < connectionDistance) { ctx.beginPath(); ctx.strokeStyle = 'rgba(255, 255, 255, ' + (1 - (distance / connectionDistance)) * 0.1 + ')'; ctx.lineWidth = 1; ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); } } } requestAnimationFrame(animate); }
         init(); animate();
 
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
@@ -528,6 +652,40 @@
                 mobileMenu.classList.add('hidden');
                 document.body.style.overflow = 'auto';
             }
+        });
+
+        // Experience Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const expCards = document.querySelectorAll('.exp-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active classes from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-neon-primary/20', 'border-neon-primary', 'text-white');
+                    b.classList.add('bg-transparent', 'border-white/10', 'text-gray-400');
+                });
+
+                // Add active class to clicked button
+                btn.classList.remove('bg-transparent', 'border-white/10', 'text-gray-400');
+                btn.classList.add('active', 'bg-neon-primary/20', 'border-neon-primary', 'text-white');
+
+                // Filter logic
+                const filter = btn.getAttribute('data-filter');
+                
+                expCards.forEach(card => {
+                    // Reset animation by removing and re-adding class
+                    card.classList.remove('animate-fade-in');
+                    void card.offsetWidth; // Trigger reflow
+
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = ''; // Restore flex layout
+                        card.classList.add('animate-fade-in');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>
